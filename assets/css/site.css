@@ -240,13 +240,3 @@ footer {
     font-size: 0.95rem;
     margin: 1.6rem 0;
 }
-
-.todo {
-    background: #2a1410;
-    border: 1px dashed #8a4a3a;
-    color: #e0b4a8;
-    padding: 1.1rem 1.3rem;
-    border-radius: 3px;
-    margin: 1.6rem 0;
-    font-size: 0.95rem;
-}

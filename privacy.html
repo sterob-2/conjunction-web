@@ -140,69 +140,8 @@
     </div>
 </footer>
 
-<!--
-================================================================================
-PREPARED BUT NOT ACTIVE - do not publish any block below until the matching SDK
-is actually in the shipped bundle.
-
-The rule that makes this dangerous: Google scans the SDKs in the uploaded bundle
-against the Data safety declaration. A policy that promises less than the app
-does is a policy violation and gets the app suspended. A policy that promises
-more than the app does frightens testers for nothing. So: the block goes live in
-the SAME round as the SDK, never before, never after.
-
-Checklist per feature, all four steps or none (see also docs in the game repo):
-  1. Paste the block below into the body, above "Your rights".
-  2. Bump the version number and the date at the top of the page.
-  3. Update the Data safety form in the Play Console.
-  4. Only then roll out the build containing the SDK.
-
---- ADVERTISING ------------------------------------------------------------
-
-<h2>Advertising</h2>
-<p>The app shows advertising supplied by [PROVIDER]. To do so, [PROVIDER] processes
-your device&rsquo;s advertising identifier (Advertising ID) and technical data about
-your device. [PROVIDER] is an independent controller for this processing; see
-[PROVIDER PRIVACY URL].</p>
-<p>In the EU, the EEA, the UK and Switzerland we ask for your consent before any
-personalised advertising is shown, through a consent dialog that appears when you
-first start the app. You can change that decision at any time under Settings &rarr;
-Privacy. Legal basis: your consent, Art. 6(1)(a) GDPR.</p>
-
-  NOTE: a Google-certified CMP is mandatory for AdMob in the EU/UK/CH. Without it,
-  ad serving to those users is blocked. The AD_ID permission must also be declared
-  for Android 13 and above, and the target audience / content rating has to be
-  re-answered in the Console.
-
---- USAGE STATISTICS -------------------------------------------------------
-
-<h2>Usage statistics</h2>
-<p>To understand how the game is played and where players get stuck, the app records
-[WHAT EXACTLY: e.g. level reached, session length, which fields are attempted] using
-[PROVIDER]. This data is pseudonymous and is not used to identify you.</p>
-<p>Legal basis: [consent, Art. 6(1)(a) GDPR - or legitimate interest, Art. 6(1)(f),
-in which case name the interest and the objection route]. You can switch this off
-under Settings &rarr; Privacy.</p>
-
---- ONLINE LEADERBOARD -----------------------------------------------------
-
-<h2>Online leaderboard</h2>
-<p>If you take part in the leaderboard, the following leaves your device and is
-stored on a server: your chosen player name, your score and the date it was set.
-Your player name is visible to all other players. Choose a name that does not
-identify you if you would rather stay anonymous.</p>
-<p>Legal basis: your consent, Art. 6(1)(a) GDPR, given by joining the leaderboard.
-Participation is voluntary and the game is fully playable without it.</p>
-<p>Storage: [PROVIDER AND SERVER LOCATION]. Retention: [PERIOD]. You may have your
-entry deleted at any time by writing to the contact address above.</p>
-
-  NOTE: this is the heavy one. Once save data leaves the device we become the
-  controller: server location matters, a data processing agreement with the backend
-  provider is required, and Art. 17 erasure must actually be executable. Google Play
-  Games Services keeps Google in the processor role and is the lighter path.
-
-================================================================================
--->
+<!-- Maintainers: when advertising, analytics or a leaderboard are added, the policy text and
+     the four-step release rule live in docs/engineering/website.md in the game repo. -->
 
 </body>
 </html>

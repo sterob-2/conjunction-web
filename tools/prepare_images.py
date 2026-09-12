@@ -6,12 +6,16 @@ landing page nobody reads. Run this after the art changes, then commit what it
 writes into assets/img/.
 """
 
+import os
 from pathlib import Path
 
 from PIL import Image
 
-GAME = Path("D:/repos/conjunction-b")
-OUT = Path("D:/repos/conjunction-web/assets/img")
+SITE = Path(__file__).resolve().parents[1]
+
+# The game project is expected next to this one; CONJUNCTION_REPO overrides that.
+GAME = Path(os.environ.get("CONJUNCTION_REPO") or SITE.parent / "conjunction-b")
+OUT = SITE / "assets" / "img"
 
 WEBP_QUALITY = 84
 

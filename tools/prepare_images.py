@@ -83,13 +83,12 @@ def build() -> None:
     save_png(fit_width(icon, 180), "apple-touch-icon.png")
     save_png(fit_width(icon, 32), "favicon-32.png")
 
-    shots = {
-        "shot-map.webp": GAME / "docs/engineering/play-store/screenshot_01_map.png",
-        "shot-star.webp": GAME / "Assets/Art/UI/Intro/02_red_star.png",
-        "shot-village.webp": GAME / "Assets/Art/UI/Intro/07_village_lane.png",
-    }
-    for name, source in shots.items():
-        save_webp(fit_width(Image.open(source), 720), name)
+    # Real device captures, not editor renders. The untouched originals live in the
+    # game repo; the site takes them at their own aspect ratio, since only the store
+    # insists on 9:16.
+    shots = GAME / "docs/engineering/play-store/source"
+    for name in ("01_map", "02_combat", "03_victory", "04_wheel", "06_prep", "08_whispers"):
+        save_webp(fit_width(Image.open(shots / f"{name}.jpg"), 720), f"shot-{name[3:]}.webp")
 
     build_og_image()
 

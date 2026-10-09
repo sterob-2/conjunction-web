@@ -22,7 +22,7 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.1 &middot; Last updated 28 September 2026</p>
+    <p class="stamp">Version 1.2 &middot; Last updated 9 October 2026</p>
 
     <div class="prose">
 
@@ -33,9 +33,10 @@
 
         <h2>The short version</h2>
 
-        <p><strong>The app sends nothing on its own.</strong> It has no user accounts, no analytics,
-        no advertising, no crash reporting of its own and no network communication whatsoever. Your
-        progress is stored on your device. The one way anything from the game reaches us is a
+        <p><strong>The app sends nothing on its own.</strong> It has no user accounts, no analytics
+        service, no advertising, no crash reporting of its own and no network communication
+        whatsoever. Your progress, and a <a href="#play-diary">diary of your play</a> that you can
+        switch off, are stored on your device. The one way anything from the game reaches us is a
         <a href="#feedback">feedback report</a> that you choose to send: it happens only when you tap
         the feedback button and pick where it goes, never on its own and never in the
         background.</p>
@@ -61,6 +62,19 @@
         inside a feedback report you send yourself (see below). Unless you have sent one, we have no
         copy of it and no way to read it.</p>
 
+        <p id="play-diary">Next to each hero&rsquo;s save the app keeps a <strong>play diary</strong>:
+        one line for each moment of play &mdash; the app was started, a fight began or ended, a field
+        was cleared for the first time, the hero died, a field&rsquo;s entry check turned the hero
+        away, a hunt was collected, a level was reached. A line holds game values only, such as the
+        field, the hero&rsquo;s level, the outcome, how long it took and what was found, together with
+        a random identifier for the hero and one for the current app session, the app and game-data
+        version, and the time. It holds no name, no device identifier and nothing you typed. Like the
+        save, it leaves the device only inside a feedback report you send yourself.</p>
+
+        <p>The diary is on when you install the app. You can turn it off under Settings &rarr;
+        Gameplay &rarr; Privacy &rarr; <em>Share gameplay statistics</em>. Turning it off deletes the
+        diary of every hero on the device, and nothing new is kept until you turn it on again.</p>
+
         <p>Uninstalling the app removes this data. Unless you have sent us a feedback report, there
         is nothing further you need to do and nothing for us to delete, because we never had it.</p>
 
@@ -75,6 +89,8 @@
             <li>the save game of every hero on this device &mdash; each character and the name you
             gave it, progress, inventory, skills and settings, and whether the game&rsquo;s test
             options were used;</li>
+            <li>the <a href="#play-diary">play diary</a> of every hero on this device, unless you
+            have turned it off;</li>
             <li>the recordings of the fights not sent in an earlier report, which the game keeps on
             your device so a fight can be traced afterwards, including any note you added to a
             fight with &ldquo;Felt wrong?&rdquo;.</li>
@@ -101,6 +117,11 @@
             <li><strong>Notifications</strong> &mdash; so the game can tell you when a field you set
             to farm has finished. These notifications are generated on your device by the app
             itself; no server is involved and no information is sent anywhere.</li>
+            <li><strong>Network access</strong> &mdash; declared in every build by the game engine
+            the app is built with. The app itself sends nothing over the network.</li>
+            <li><strong>Foreground service</strong> &mdash; declared by Google Play&rsquo;s asset
+            delivery, which unpacks the game&rsquo;s graphics after an install or update. No data is
+            read or transmitted.</li>
         </ul>
 
         <p>The app requests no access to your contacts, location, camera, microphone, photos or
@@ -145,8 +166,9 @@
 
         <h2>Changes to this policy</h2>
 
-        <p>The app is in active development. Features that would process data &mdash; online
-        leaderboards, advertising or usage statistics &mdash; are not part of the app today. If any
+        <p>The app is in active development. Features that would send data to a server &mdash;
+        online leaderboards, advertising, or usage statistics sent from the
+        <a href="#play-diary">play diary</a> &mdash; are not part of the app today. If any
         of them is added, this policy will be updated <em>before</em> the corresponding version is
         released, the version number and date above will change, and the data safety declaration on
         the Play Store page will be updated to match.</p>

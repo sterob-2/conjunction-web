@@ -8,6 +8,7 @@ Three pages, no framework, no build step: plain HTML and one stylesheet, served 
 index.html            landing page
 privacy.html          privacy policy
 legal-notice.html     Impressum (§ 5 DDG)
+delete-account.html   how to delete the cloud account (Google Play's account deletion link)
 404.html
 CNAME                 the custom domain, read by GitHub Pages
 .nojekyll             serve the files as they are, do not run Jekyll

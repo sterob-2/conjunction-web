@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy Policy - Conjunction</title>
-<meta name="description" content="Privacy policy for the Conjunction mobile game. The app collects no personal data.">
+<meta name="description" content="Privacy policy for the Conjunction mobile game: cloud save and gameplay statistics behind one switch, no advertising, no name in the statistics.">
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://conjunctiongame.com/privacy.html">
@@ -22,7 +22,7 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.2 &middot; Last updated 9 October 2026</p>
+    <p class="stamp">Version 1.3 &middot; Last updated 31 October 2026</p>
 
     <div class="prose">
 
@@ -33,13 +33,14 @@
 
         <h2>The short version</h2>
 
-        <p><strong>The app sends nothing on its own.</strong> It has no user accounts, no analytics
-        service, no advertising, no crash reporting of its own and no network communication
-        whatsoever. Your progress, and a <a href="#play-diary">diary of your play</a> that you can
-        switch off, are stored on your device. The one way anything from the game reaches us is a
-        <a href="#feedback">feedback report</a> that you choose to send: it happens only when you tap
-        the feedback button and pick where it goes, never on its own and never in the
-        background.</p>
+        <p>Your progress is stored on your device. While the switch <em>Cloud save and gameplay
+        statistics</em> is on, the app also keeps a <a href="#cloud-save">copy of your heroes in the
+        cloud</a> and sends <a href="#usage-statistics">gameplay statistics</a> &mdash; moments of play
+        such as a fight won or a level reached, with no name and nothing you typed. The app shows you
+        that switch the first time you start it and sends nothing before you have made your choice;
+        you can turn it off at any time under Settings &rarr; Gameplay &rarr; Privacy. There is no
+        advertising and no tracking across other apps. A <a href="#feedback">feedback report</a>
+        reaches us only when you send it yourself.</p>
 
         <h2>Who is responsible</h2>
 
@@ -58,25 +59,91 @@
         <h2>What the app stores, and where</h2>
 
         <p>Your save game &mdash; character, progress, inventory, claimed fields and settings &mdash;
-        is written to the app&rsquo;s private storage area on your device. It leaves the device only
-        inside a feedback report you send yourself (see below). Unless you have sent one, we have no
-        copy of it and no way to read it.</p>
+        is written to the app&rsquo;s private storage area on your device. While cloud save is on, a
+        copy of it is kept in the cloud as described <a href="#cloud-save">below</a>.</p>
 
         <p id="play-diary">Next to each hero&rsquo;s save the app keeps a <strong>play diary</strong>:
-        one line for each moment of play &mdash; the app was started, a fight began or ended, a field
-        was cleared for the first time, the hero died, a field&rsquo;s entry check turned the hero
-        away, a hunt was collected, a level was reached. A line holds game values only, such as the
-        field, the hero&rsquo;s level, the outcome, how long it took and what was found, together with
-        a random identifier for the hero and one for the current app session, the app and game-data
-        version, and the time. It holds no name, no device identifier and nothing you typed. Like the
-        save, it leaves the device only inside a feedback report you send yourself.</p>
+        one line for each moment of play &mdash; the app was started or brought back, a fight began
+        or ended, a field was cleared for the first time, the hero died, a field&rsquo;s entry check
+        turned the hero away, the hero switched equipment set, a hunt was collected, a level was
+        reached. A line holds game values only, such as the field, the hero&rsquo;s level, the
+        outcome, how long it took and what was found, together with a random identifier for the hero
+        and one for the current app session, the app and game-data version, whether the game&rsquo;s
+        test options were used, and the time. It holds no name, no device identifier and nothing you
+        typed. While the switch is on, these lines are the <a href="#usage-statistics">gameplay
+        statistics</a> the app sends.</p>
 
-        <p>The diary is on when you install the app. You can turn it off under Settings &rarr;
-        Gameplay &rarr; Privacy &rarr; <em>Share gameplay statistics</em>. Turning it off deletes the
-        diary of every hero on the device, and nothing new is kept until you turn it on again.</p>
+        <p>The switch <em>Cloud save and gameplay statistics</em> is under Settings &rarr; Gameplay
+        &rarr; Privacy. Turning it off deletes the diary of every hero on the device, stops the
+        statistics and the cloud copies, and nothing new is kept until you turn it on again.</p>
 
-        <p>Uninstalling the app removes this data. Unless you have sent us a feedback report, there
-        is nothing further you need to do and nothing for us to delete, because we never had it.</p>
+        <p>Uninstalling the app removes everything on the device. It does not delete the cloud copy
+        of your heroes or the statistics already sent; see <a href="#rights">Your rights</a> for how
+        to have them deleted.</p>
+
+        <h2 id="first-start">Before anything is sent</h2>
+
+        <p>The first time you start the app it shows a notice about cloud save and gameplay
+        statistics with two buttons, <em>Keep on</em> and <em>Switch off</em>. Until you have tapped
+        one of them, or opened the switch in Settings, the app sends nothing, connects to no
+        service and creates no identifier for the services below. If you choose <em>Switch
+        off</em>, that stays so until you turn the switch on yourself.</p>
+
+        <h2 id="cloud-save">Cloud save</h2>
+
+        <p>So that a lost or new phone does not mean a lost hero, the app keeps a copy of each
+        hero&rsquo;s save in Unity Gaming Services Cloud Save, a service of Unity Technologies that
+        stores it on our behalf under a data processing agreement. The copy is the whole save: the
+        hero&rsquo;s name as you chose it, level, equipment, bag, gold, story progress and the
+        hero&rsquo;s random identifier. It is sent about twenty seconds after the game saves, and
+        only while the switch is on. The copy is stored under a random player identifier the service
+        gives the app when it first connects; the app keeps that identifier on your device.</p>
+
+        <p>You can add a sign-in with Google (Google Play Games on Android). It links your Google Play
+        Games account to that player identifier, so you can find your heroes again on a new phone;
+        Google then learns that you use the app, under Google&rsquo;s own terms as an independent
+        controller. The sign-in is never required.</p>
+
+        <p>Legal basis: our legitimate interest in keeping your progress safe and offering it back
+        on another phone, Art. 6(1)(f) GDPR. The copy is kept until you delete your cloud account in
+        the app under Settings &rarr; Gameplay &rarr; Account, or by
+        <a href="/delete-account.html">writing to us</a>. Turning the switch off stops new copies but
+        does not delete the stored one.</p>
+
+        <h2 id="usage-statistics">Usage statistics</h2>
+
+        <p>To understand how the game is played and where players get stuck, the app sends the lines
+        of the <a href="#play-diary">play diary</a> to Unity Gaming Services Analytics, a service of
+        Unity Technologies that processes them on our behalf under a data processing agreement. These
+        are the nine moments of play the diary records: app started or brought back, fight started,
+        fight ended, field cleared for the first time, hero died, entry check failed, equipment set
+        switched, hunt collected and level reached &mdash; nothing else of what you do in the game
+        is sent.</p>
+
+        <p>To tell one installation from another, the service gives the app a random installation
+        identifier, stored on your device; once the app has signed in for the cloud save, the random
+        player identifier from above is attached as well. Together with the random hero and session identifiers in the
+        diary, this makes the statistics pseudonymous. We do not use them to identify you, do not
+        combine them with other data and do not use them for advertising. The service also processes
+        your IP address, the approximate location derived from it, and technical diagnostics and
+        performance data of the app.</p>
+
+        <p>Unity documents that it processes Analytics data on servers in Belgium and the Netherlands
+        and keeps a replicated copy in Iowa, United States. Raw events are kept for 13 months; the counts and
+        player profiles derived from them are kept until deletion is requested.</p>
+
+        <p>Legal basis: our legitimate interest in finding where the game is too hard or unclear and
+        in balancing it, Art. 6(1)(f) GDPR. You can object at any time by turning the switch off:
+        from that moment nothing more is collected, the diary on your device is deleted, and the app
+        asks Unity to delete what it received from this installation &mdash; if your phone is
+        offline, it asks again until the request has gone through.</p>
+
+        <h2>Where the services process your data</h2>
+
+        <p>Unity Technologies processes cloud copies and statistics as our processor (Art. 28 GDPR).
+        Where data leaves the European Union, Unity&rsquo;s data processing agreement relies on the
+        EU Standard Contractual Clauses. Unity names its storage locations and sub-processors in that
+        agreement. All data the app sends travels encrypted (HTTPS).</p>
 
         <h2 id="feedback">Feedback reports</h2>
 
@@ -112,13 +179,13 @@
         <h2>Permissions the app requests</h2>
 
         <ul>
+            <li><strong>Network access</strong> &mdash; for the cloud save and the gameplay
+            statistics while the switch is on, and for the optional Google sign-in.</li>
             <li><strong>Vibration</strong> &mdash; for haptic feedback on critical hits. No data is
             read or transmitted.</li>
             <li><strong>Notifications</strong> &mdash; so the game can tell you when a field you set
             to farm has finished. These notifications are generated on your device by the app
             itself; no server is involved and no information is sent anywhere.</li>
-            <li><strong>Network access</strong> &mdash; declared in every build by the game engine
-            the app is built with. The app itself sends nothing over the network.</li>
             <li><strong>Foreground service</strong> &mdash; declared by Google Play&rsquo;s asset
             delivery, which unpacks the game&rsquo;s graphics after an install or update. No data is
             read or transmitted.</li>
@@ -129,11 +196,10 @@
 
         <h2>Google Play</h2>
 
-        <p>The app itself sends nothing to us, but the distribution channel is not ours. When you
-        download, install or update the app through Google Play, Google processes data about that
-        &mdash; and, if you have enabled it on your device, may share crash diagnostics with
-        developers in aggregated form. This processing is carried out by Google under its own terms,
-        not by us. See
+        <p>The distribution channel is not ours. When you download, install or update the app
+        through Google Play, Google processes data about that &mdash; and, if you have enabled it on
+        your device, may share crash diagnostics with developers in aggregated form. This processing
+        is carried out by Google under its own terms, not by us. See
         <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google&rsquo;s
         Privacy Policy</a> and the data safety section on the app&rsquo;s Play Store page.</p>
 
@@ -147,31 +213,42 @@
         are loaded from Google Fonts, which means your browser contacts a Google server and your IP
         address is transmitted in that request.</p>
 
-        <h2>Your rights</h2>
+        <h2 id="rights">Your rights</h2>
 
         <p>Under the GDPR you have the right of access (Art. 15), rectification (Art. 16), erasure
         (Art. 17), restriction (Art. 18), data portability (Art. 20) and objection (Art. 21), and
         you may lodge a complaint with a supervisory authority (Art. 77).</p>
 
-        <p>In practice these rights only have something to act on if you have sent us a feedback
-        report; otherwise we hold no data about you. To get a copy of a report, or have it deleted,
-        write to the contact address above. You may object to our use of a report at any time
-        (Art. 21), and we will then delete it.</p>
+        <p>In practice:</p>
+
+        <ul>
+            <li><strong>Statistics:</strong> turning the switch off is your objection; the app then
+            asks Unity to delete what it received from this installation. Without the app, write to
+            the contact address above.</li>
+            <li><strong>Cloud copies:</strong> delete your cloud account in the app under Settings
+            &rarr; Gameplay &rarr; Account, or follow the steps on
+            <a href="/delete-account.html">Delete your account</a>. Settings also show your Player
+            ID, which a request by e-mail names.</li>
+            <li><strong>Feedback reports:</strong> to get a copy of a report, or have it deleted,
+            write to the contact address above. You may object to our use of a report at any time,
+            and we will then delete it.</li>
+        </ul>
+
+        <p>We answer every request within 30 days.</p>
 
         <h2>Children</h2>
 
-        <p>The app is not directed at children and is not designed for them. It sends nothing on its
-        own. If a child has sent us a feedback report, a parent or guardian can write to the
-        contact address above and we will delete it.</p>
+        <p>The app is not directed at children and is not designed for them. A parent or guardian
+        can turn the switch off, delete the cloud account in the app, or write to the contact address
+        above, and we will delete what we hold.</p>
 
         <h2>Changes to this policy</h2>
 
-        <p>The app is in active development. Features that would send data to a server &mdash;
-        online leaderboards, advertising, or usage statistics sent from the
-        <a href="#play-diary">play diary</a> &mdash; are not part of the app today. If any
-        of them is added, this policy will be updated <em>before</em> the corresponding version is
-        released, the version number and date above will change, and the data safety declaration on
-        the Play Store page will be updated to match.</p>
+        <p>The app is in active development. Online leaderboards and advertising are not part of the
+        app today. If either is added, or the app starts to send anything not described here, this
+        policy will be updated <em>before</em> the corresponding version is released, the version
+        number and date above will change, and the data safety declaration on the Play Store page
+        will be updated to match.</p>
 
         <div class="note">
             <strong>Reading this because Google Play sent you here?</strong> This is the privacy
@@ -196,8 +273,8 @@
     </div>
 </footer>
 
-<!-- Maintainers: when advertising, analytics or a leaderboard are added, the policy text and
-     the four-step release rule live in docs/engineering/website.md in the game repo. -->
+<!-- Maintainers: when advertising or a leaderboard are added, the policy text and the four-step
+     release rule live in docs/engineering/website.md in the game repo. -->
 
 </body>
 </html>

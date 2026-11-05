@@ -19,7 +19,7 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.4 &middot; Last updated 4 November 2026</p>
+    <p class="stamp">Version 1.5 &middot; Last updated 5 November 2026</p>
 
     <div class="prose">
 
@@ -70,6 +70,13 @@
             <li><strong>Fight recordings</strong> &mdash; the last fights, including any note you add
             with &ldquo;Felt wrong?&rdquo;, so a fight can be traced if you report a problem. They
             leave the device only inside a feedback report you send.</li>
+            <li id="error-notes"><strong>Error notes</strong> &mdash; when the app runs into an error,
+            one line with the time, the app version, the kind of error, its message and the place in
+            the app&rsquo;s code where it happened, each kind once per app session; the newest 200
+            lines are kept. A line holds no identifier, no name and nothing you typed. The notes are
+            kept whether or not you share statistics, so that a problem you report can be traced, and
+            they leave the device only inside a feedback report you send &mdash; and, only while you
+            share <a href="#usage-statistics">gameplay statistics</a>, as an error event.</li>
             <li id="play-diary"><strong>The play diary</strong> &mdash; only while you share
             <a href="#usage-statistics">gameplay statistics</a>: one line for each moment of play
             (the app was started or brought back, a fight began or ended, a field was cleared for the
@@ -147,6 +154,12 @@
         Analytics also records its own standard events, such as when a play session starts and
         ends.</p>
 
+        <p>With the statistics, the app also sends an error event when it runs into an error, so that
+        we can find and fix faults: the kind of error, the first 120 characters of its message and the
+        place in the app&rsquo;s code (the same as in the <a href="#error-notes">error notes</a>), once
+        per kind and app session, with the identifiers of the diary &mdash; the hero&rsquo;s only while
+        a hero is played.</p>
+
         <p>Analytics gives the app a random installation identifier, stored on your device; if you
         also use cloud save, your Player ID is attached as well, so the statistics of a cloud player
         can be linked to that Player ID. With the random hero and session identifiers in the diary,
@@ -205,6 +218,7 @@
             options were used;</li>
             <li>the <a href="#play-diary">play diary</a> of every hero on this device, if you share
             gameplay statistics;</li>
+            <li>the <a href="#error-notes">error notes</a> of this device;</li>
             <li>the fight recordings not sent in an earlier report, including any note you added to a
             fight with &ldquo;Felt wrong?&rdquo;.</li>
         </ul>
@@ -307,6 +321,9 @@
         write to the contact address above, and we will delete what we hold.</p>
 
         <h2 id="changes">Changes to this policy</h2>
+
+        <p>Version 1.5 adds the error notes the app keeps on your device, which travel with a feedback
+        report, and the error event the gameplay statistics send.</p>
 
         <p>Version 1.4 links the gameplay statistics to the cloud Player ID while cloud save is on,
         so that they can be found and deleted by that Player ID.</p>

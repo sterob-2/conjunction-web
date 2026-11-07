@@ -121,16 +121,21 @@
         it, level, equipment, bag, gold, story progress and the hero&rsquo;s random identifier
         &mdash; to Unity Gaming Services Cloud Save. The copy is sent about twenty seconds after the
         game saves, and only while cloud save is ticked; unticking it stops new copies, although a copy
-        already on its way may still arrive.</p>
+        already on its way may still arrive. Unticking it also signs the app out of the cloud account:
+        the session and the Player ID are removed from the device, and ticking it again signs in through
+        Google again.</p>
 
         <p>Ticking cloud save signs you in with your Google Play Games account; there is no separate
-        sign-in step. Google authenticates you &mdash; by itself if you are already signed in to Google
+        sign-in step, and the app starts the Google Play Games services only then &mdash; before you tick cloud
+        save it does not contact Google. Google authenticates you &mdash; by itself if you are already signed in to Google
         Play Games on the device, otherwise in Google&rsquo;s own sign-in window &mdash; and gives the
         app a one-time code, which Unity Gaming Services Authentication exchanges for your Google Play
         Games account identifier. The cloud account that keeps your copies is the one linked to that
         Google account, with a random Player ID; Unity creates it the first time. The app keeps a
         session on your device so it can reconnect at later starts without asking you. The device
-        stores the Player ID and the session data, and Settings shows your Player ID. If you cancel the
+        stores the Player ID and the session data, and Settings shows your Player ID. Unity Gaming
+        Services also gives the app a random installation identifier, stored on your device and sent
+        with the cloud save's requests. If you cancel the
         sign-in, or the device has no Google Play Games, cloud save switches back off and nothing is
         sent. Google Ireland Limited processes your sign-in under its own
         <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">privacy policy</a>,
@@ -146,7 +151,13 @@
         experience, then playing time; the newer save if they are equal) and stores the other copy
         as a backup in the same cloud account, one per hero, replaced by the next such backup.
         Settings names a backup it finds; we restore it on request. Deleting a hero on the device
-        while cloud save is on also deletes its cloud copy and backup.</p>
+        while cloud save is on also deletes its cloud copy and backup; deleting it while cloud save is
+        off deletes them the next time cloud save is on, or with the cloud account. A hero deleted on one
+        device is not brought back by another device&rsquo;s copy that was not played since; a copy
+        played there since is backed up again.</p>
+
+        <p>If the cloud account is deleted on another device or at your request, the app switches cloud
+        save off on this device and tells you once; it does not create a new account by itself.</p>
 
         <p>Legal basis: providing the backup you request by ticking cloud save, including the Google
         sign-in it needs, Art. 6(1)(b) GDPR; storing the Player ID and session on your device is
@@ -172,9 +183,10 @@
         per kind and app session, with the identifiers of the diary &mdash; the hero&rsquo;s only while
         a hero is played.</p>
 
-        <p>Analytics gives the app a random installation identifier, stored on your device; if you
-        also use cloud save, your Player ID is attached as well, so the statistics of a cloud player
-        can be linked to that Player ID. With the random hero and session identifiers in the diary,
+        <p>Analytics gives the app a random installation identifier, stored on your device; while
+        cloud save is ticked and signed in, your Player ID is attached as well, so the statistics of a
+        cloud player can be linked to that Player ID. Unticking cloud save signs out, and from then on
+        the Player ID is no longer attached. With the random hero and session identifiers in the diary,
         this makes the statistics pseudonymous: we do not use them to identify you, do not combine
         them with other data and do not use them for advertising. Analytics also processes your IP
         address, the approximate region derived from it, and technical diagnostics and performance
@@ -192,8 +204,10 @@
         easy as giving it and does not affect the lawfulness of the processing before you withdrew.
         From then on the app collects no new statistics, deletes the diary on your device, and asks
         Unity to delete what it received from this installation &mdash; if your device is offline, at
-        the next start that reaches Unity. Unity deletes the data within seven days of receiving the
-        request.</p>
+        the next start that reaches Unity. Events the Analytics service had already queued on the device
+        before you unticked may still arrive; the erasure covers them too. Unity deletes the data within
+        seven days of receiving the request. If you tick the statistics again before Unity has confirmed
+        an earlier erasure, the app keeps the new events on your device until it has.</p>
 
         <h2 id="recipients">Who receives the data, and where</h2>
 
@@ -335,8 +349,12 @@
         <h2 id="changes">Changes to this policy</h2>
 
         <p>Version 1.6 describes cloud save as it now works: ticking it is the Google Play Games
-        sign-in, the heroes are restored on a new device without a question, a backup copy is kept
-        when two devices disagree, and deleting a hero deletes its cloud copy too.</p>
+        sign-in, and Google Play Games starts only then; the heroes are restored on a new device without
+        a question, a backup copy is kept when two devices disagree, deleting a hero deletes its cloud
+        copy too &mdash; also one deleted while cloud save was off, the next time it is on &mdash; and unticking
+        cloud save signs out, so the Player ID no longer travels with the statistics. It names the
+        installation identifier of cloud save, the events already queued when the statistics are
+        unticked, and what happens on a device whose cloud account was deleted elsewhere.</p>
 
         <p>Version 1.5 adds the error notes the app keeps on your device, which travel with a feedback
         report, and the error event the gameplay statistics send.</p>

@@ -19,7 +19,7 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.5 &middot; Last updated 5 November 2026</p>
+    <p class="stamp">Version 1.6 &middot; Last updated 7 November 2026</p>
 
     <div class="prose">
 
@@ -123,26 +123,38 @@
         game saves, and only while cloud save is ticked; unticking it stops new copies, although a copy
         already on its way may still arrive.</p>
 
-        <p>To keep the copies apart, Unity Gaming Services Authentication gives the app a random
-        Player ID when cloud save first connects, and keeps a session on your device so the app can
-        reconnect without asking you. The device stores that Player ID and the session data. Settings
-        shows your Player ID.</p>
-
-        <p>To restore your heroes on another phone, first link Google sign-in (Google Play Games) in
-        Settings, then use the same sign-in on the new phone. Google then authenticates you and gives
-        the app a one-time code, which Unity exchanges for your Google Play Games account identifier
-        and links to your Player ID. A version of the app that does not offer Google sign-in says so in
-        Settings; there the backup serves only this phone. Google Ireland Limited also processes your
-        sign-in under its own
+        <p>Ticking cloud save signs you in with your Google Play Games account; there is no separate
+        sign-in step. Google authenticates you &mdash; by itself if you are already signed in to Google
+        Play Games on the device, otherwise in Google&rsquo;s own sign-in window &mdash; and gives the
+        app a one-time code, which Unity Gaming Services Authentication exchanges for your Google Play
+        Games account identifier. The cloud account that keeps your copies is the one linked to that
+        Google account, with a random Player ID; Unity creates it the first time. The app keeps a
+        session on your device so it can reconnect at later starts without asking you. The device
+        stores the Player ID and the session data, and Settings shows your Player ID. If you cancel the
+        sign-in, or the device has no Google Play Games, cloud save switches back off and nothing is
+        sent. Google Ireland Limited processes your sign-in under its own
         <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">privacy policy</a>,
-        as an independent controller. The sign-in is never required.</p>
+        as an independent controller.</p>
 
-        <p>Legal basis: providing the backup and sign-in you request by ticking cloud save and linking
-        Google, Art. 6(1)(b) GDPR; storing the Player ID and session on your device is strictly
-        necessary for that service (&sect; 25(2) no. 2 TDDDG). The copies, the account and the Google
-        link are kept until you delete the cloud account, in the app under Settings &rarr; Gameplay
-        &rarr; Account or by <a href="/delete-account.html">writing to us</a>. Unticking cloud save
-        alone does not delete them.</p>
+        <p>An installation of an earlier 0.6.2 build that already had a cloud account without Google
+        links Google to that account. If your Google Play Games account already belongs to another
+        cloud account, the heroes on the device move into that account and the earlier one is deleted
+        with its copies.</p>
+
+        <p>On a new device, ticking cloud save brings your heroes into its free hero slots. When the
+        same hero changed on two devices, the app keeps the copy with more progress (level, then
+        experience, then playing time; the newer save if they are equal) and stores the other copy
+        as a backup in the same cloud account, one per hero, replaced by the next such backup.
+        Settings names a backup it finds; we restore it on request. Deleting a hero on the device
+        while cloud save is on also deletes its cloud copy and backup.</p>
+
+        <p>Legal basis: providing the backup you request by ticking cloud save, including the Google
+        sign-in it needs, Art. 6(1)(b) GDPR; storing the Player ID and session on your device is
+        strictly necessary for that service (&sect; 25(2) no. 2 TDDDG). The copies, the backups, the
+        account and the Google link are kept until you delete the hero or the cloud account, in the
+        app under Settings &rarr; Gameplay &rarr; Account or by
+        <a href="/delete-account.html">writing to us</a>. Unticking cloud save alone does not delete
+        them.</p>
 
         <h2 id="usage-statistics">Usage statistics</h2>
 
@@ -194,7 +206,7 @@
             its <a href="https://unity.com/legal/subprocessors" rel="noopener" target="_blank">sub-processor
             page</a>.</li>
             <li><strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4,
-            Ireland, for the optional Google sign-in, as an independent controller.</li>
+            Ireland, for the Google Play Games sign-in that cloud save uses, as an independent controller.</li>
             <li><strong>GitHub, Inc.</strong> for this website; see <a href="#website">This
             website</a>.</li>
         </ul>
@@ -240,7 +252,7 @@
 
         <ul>
             <li><strong>Network access</strong> &mdash; for the cloud save and the gameplay
-            statistics while you have ticked them, for the optional Google sign-in, and to ask Unity
+            statistics while you have ticked them, for the Google sign-in cloud save uses, and to ask Unity
             to erase statistics after you untick them.</li>
             <li><strong>Vibration</strong> &mdash; for haptic feedback on critical hits. No data is
             read or transmitted.</li>
@@ -321,6 +333,10 @@
         write to the contact address above, and we will delete what we hold.</p>
 
         <h2 id="changes">Changes to this policy</h2>
+
+        <p>Version 1.6 describes cloud save as it now works: ticking it is the Google Play Games
+        sign-in, the heroes are restored on a new device without a question, a backup copy is kept
+        when two devices disagree, and deleting a hero deletes its cloud copy too.</p>
 
         <p>Version 1.5 adds the error notes the app keeps on your device, which travel with a feedback
         report, and the error event the gameplay statistics send.</p>

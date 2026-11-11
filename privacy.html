@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy Policy - Conjunction</title>
-<meta name="description" content="Privacy policy for the Conjunction mobile game: cloud save and gameplay statistics only when you tick them, statistics only from 16, no advertising.">
+<meta name="description" content="Privacy policy for the Conjunction mobile game: cloud save and gameplay statistics only when you tick them, the weekly arena only when you join it, statistics and arena only from 16, no advertising.">
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://conjunctiongame.com/privacy.html">
@@ -19,25 +19,29 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.6 &middot; Last updated 7 November 2026</p>
+    <p class="stamp">Version 1.7 &middot; Last updated 11 November 2026</p>
 
     <div class="prose">
 
         <p>This policy explains what happens to your data when you play <strong>Conjunction</strong>
         (the &ldquo;app&rdquo;), an Android game distributed through Google Play, and when you visit
-        this website. It covers Conjunction 0.6.2 and later, which offer two optional online
-        features: cloud save and gameplay statistics. Earlier versions offer neither and send none of
-        the data described under <a href="#cloud-save">Cloud save</a> and
-        <a href="#usage-statistics">Usage statistics</a>. What changed since version 1.2 is listed
-        under <a href="#changes">Changes to this policy</a>.</p>
+        this website. It covers Conjunction 0.6.2 and later, which offer optional online features:
+        cloud save and gameplay statistics, and from Conjunction 0.6.3 the weekly arena. Earlier
+        versions offer none of them and send none of the data described under
+        <a href="#cloud-save">Cloud save</a>, <a href="#usage-statistics">Usage statistics</a> and
+        <a href="#arena">The arena</a>. What changed since version 1.2 is listed under
+        <a href="#changes">Changes to this policy</a>.</p>
 
         <h2>The short version</h2>
 
-        <p>Your saves stay on your device. Two features can send data, each only if you tick it, and
-        the game plays the same without either: a <a href="#cloud-save">backup of your heroes in the
-        cloud</a>, and <a href="#usage-statistics">gameplay statistics</a>, for which we ask your
-        consent and which are only for players aged 16 or older. Both boxes start empty, and you can
-        change either at any time under Settings &rarr; Gameplay &rarr; Privacy. There is no
+        <p>Your saves stay on your device. Three features can send data, each only if you choose it,
+        and the game plays the same without any of them: a <a href="#cloud-save">backup of your heroes
+        in the cloud</a>; <a href="#usage-statistics">gameplay statistics</a>, for which we ask your
+        consent and which are only for players aged 16 or older; and the weekly
+        <a href="#arena">arena</a>, which you join at the Arena Master Z&rsquo;tirom with its own
+        consent, also only from 16, and where other players see the arena name you choose. The two
+        boxes for cloud save and statistics start empty, and you can change either at any time under
+        Settings &rarr; Gameplay &rarr; Privacy; you leave the arena at Z&rsquo;tirom. There is no
         advertising and no tracking across other apps. A <a href="#feedback">feedback report</a>
         reaches us only when you send it yourself.</p>
 
@@ -65,8 +69,10 @@
             progress, inventory, claimed fields and settings, so you can go on playing. They are
             needed to provide the game you play.</li>
             <li><strong>Your privacy choices</strong> &mdash; the two boxes, the version of the notice
-            you answered, and whether you said you are 16 or older, so the app can respect your
-            choices and does not ask again. No birth date is asked or kept.</li>
+            you answered, whether you said you are 16 or older, and whether you joined the
+            <a href="#arena">arena</a> and on which version of its terms, so the app can respect your
+            choices and does not ask again. No birth date is asked or kept. If you joined the arena,
+            the app also keeps the arena name you chose, so you need not type it again.</li>
             <li><strong>Fight recordings</strong> &mdash; the last fights, including any note you add
             with &ldquo;Felt wrong?&rdquo;, so a fight can be traced if you report a problem. They
             leave the device only inside a feedback report you send.</li>
@@ -209,6 +215,73 @@
         seven days of receiving the request. If you tick the statistics again before Unity has confirmed
         an earlier erasure, the app keeps the new events on your device until it has.</p>
 
+        <h2 id="arena">The arena</h2>
+
+        <p>From Conjunction 0.6.3 the Arena Master Z&rsquo;tirom holds a tournament every week: the
+        heroes players hand in fight each other, and a table shows how each did. Joining is a choice of
+        its own. Before your first hand-in Z&rsquo;tirom shows what is sent and who sees it, and asks
+        you to confirm that you are 16 or older and that you join on these terms; below 16 the arena is
+        not open to you. The arena needs cloud save, because a hand-in is stored in your cloud account.
+        Neither cloud save nor the gameplay statistics join you to the arena, and the arena does not
+        switch either of them on. The game plays the same without it.</p>
+
+        <p><strong>What a hand-in sends.</strong> You can hand in up to three heroes a week, one per
+        hero slot. For each, the app writes to Unity Gaming Services Cloud Save, under your cloud
+        Player ID, a snapshot of the hero as it is at that moment: its random identifier, level,
+        attributes, worn items with their rolls, active skills, skill-wheel progress, permanent
+        treasure bonuses, the field it stands on (which decides the act it fights in), a fingerprint of
+        its fight setup, which of the game&rsquo;s test options were used, and the app and game-data
+        version. With it go the arena name you choose, the week, the hero slot, a random identifier for
+        the hand-in and whether it comes from a test build. The snapshot does not hold the name you gave
+        the hero, its bag, gold or story progress, the play diary, or anything about your device. If
+        you leave the arena, the app writes one more note to Cloud Save that names the heroes you took
+        back.</p>
+
+        <p><strong>How the tournament runs.</strong> Once a week, after the deadline on Sunday at 18:00
+        Berlin time, we read the week&rsquo;s hand-ins from Cloud Save onto our own computer in Germany.
+        There we check that each hero is one the game can build, fight every hero against every other,
+        and write the results back to Cloud Save: the table for every player, and for each of your
+        heroes its own results &mdash; for each opponent the score and a short account of one fight
+        &mdash; which only you can read. Your device never computes or sends a result. The best eight
+        heroes of the table then fight a final. On the game&rsquo;s internal test builds Z&rsquo;tirom
+        also holds test tournaments for our testers. They work the same way under keys of their own, are
+        never posted on Discord or put on the season list, and only the latest test is kept.</p>
+
+        <p><strong>What other players see.</strong> The table at Z&rsquo;tirom shows each handed-in
+        hero by your arena name, with its level, weapon, level band, place and results. The weekly
+        winners &mdash; the first three of the final &mdash; are named by arena name, level and weapon
+        on the season list at Z&rsquo;tirom and in a post on the Conjunction Discord server, which
+        everyone who joins that server can read. In your own results your opponents appear without
+        name, as &ldquo;an opponent of level 23&rdquo;, and so do you in theirs. Your Player ID, your
+        snapshots and your results are never public. Choose an arena name that is not your real name
+        and offends no one: the game refuses some names, and we rename or remove a name that breaks
+        this rule. You can report a name you find in the arena with <em>Report a name</em> at
+        Z&rsquo;tirom, which opens an e-mail to us, or by writing to the contact address above.</p>
+
+        <p><strong>How long it is kept.</strong> A hand-in is deleted from Cloud Save as soon as its week
+        has been fought. A week&rsquo;s table and results stay until the next week has been fought, so
+        about one week, and are then deleted. The season list of weekly winners stays until the season
+        ends with the next game version for testers, and the winners of the season are then named once
+        more in a Discord post. On our computer we keep the season&rsquo;s hand-ins and the link from a
+        table row to the player it belongs to until the season ends, so that a result can be corrected
+        or erased; the identifiers of our Discord posts are kept so that a post can be deleted. A
+        Discord post stays on the server until we delete it, which we do when you ask.</p>
+
+        <p><strong>Leaving and erasure.</strong> <em>Leave the arena</em> at Z&rsquo;tirom withdraws
+        your consent and every hero you handed in: they are not fought again, they leave the current
+        table, and their results are deleted at the tournament&rsquo;s next run, within seven days.
+        Places you won in earlier weeks stay on the season list and in the Discord posts of those
+        weeks until the season ends; write to us with your Player ID, which Settings shows, and we
+        erase them too, together with every copy on our computer. We may ask you to confirm that the
+        Player ID is yours, without ever needing your password. Deleting your cloud account removes your
+        hand-ins with it, and the tournament&rsquo;s next run takes your heroes out of the table and
+        deletes their results. Deleting the app alone deletes nothing that was already handed in.</p>
+
+        <p>Legal basis: your consent, given when you join the arena at Z&rsquo;tirom, Art. 6(1)(a) GDPR.
+        You can withdraw it at any time with <em>Leave the arena</em>; this does not affect the
+        lawfulness of the processing before you withdrew. Keeping your choice and your arena name on the
+        device is part of the arena you asked for (&sect; 25(2) no. 2 TDDDG).</p>
+
         <h2 id="recipients">Who receives the data, and where</h2>
 
         <ul>
@@ -221,6 +294,12 @@
             page</a>.</li>
             <li><strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4,
             Ireland, for the Google Play Games sign-in that cloud save uses, as an independent controller.</li>
+            <li><strong>Discord Inc.</strong>, 444 De Haro Street, Suite 200, San Francisco, CA 94107,
+            United States, hosts the Conjunction Discord server, where we post the
+            <a href="#arena">arena&rsquo;s</a> weekly winners by arena name, level and weapon. Discord
+            processes what is posted on its service under its own
+            <a href="https://discord.com/privacy" rel="noopener" target="_blank">privacy policy</a>, as an
+            independent controller.</li>
             <li><strong>GitHub, Inc.</strong> for this website; see <a href="#website">This
             website</a>.</li>
         </ul>
@@ -266,8 +345,9 @@
 
         <ul>
             <li><strong>Network access</strong> &mdash; for the cloud save and the gameplay
-            statistics while you have ticked them, for the Google sign-in cloud save uses, and to ask Unity
-            to erase statistics after you untick them.</li>
+            statistics while you have ticked them, for the Google sign-in cloud save uses, to ask Unity
+            to erase statistics after you untick them, and for the arena&rsquo;s hand-ins and its table
+            once you have joined it.</li>
             <li><strong>Vibration</strong> &mdash; for haptic feedback on critical hits. No data is
             read or transmitted.</li>
             <li><strong>Notifications</strong> &mdash; so the game can tell you when a field you set
@@ -324,6 +404,11 @@
             Settings &rarr; Gameplay &rarr; Account, or follow the steps on
             <a href="/delete-account.html">Delete your account</a>, which a request by e-mail with your
             Player ID can do too.</li>
+            <li><strong>Arena:</strong> <em>Leave the arena</em> at Z&rsquo;tirom withdraws your
+            consent and your heroes. To have everything of yours erased &mdash; also your places on
+            the season list, the Discord posts that name you and our copies &mdash; write to the
+            contact address above with your Player ID. To report another player&rsquo;s arena name,
+            use <em>Report a name</em> at Z&rsquo;tirom.</li>
             <li><strong>Feedback reports:</strong> to get a copy of a report, or have it deleted,
             write to the contact address above. You may object to our use of a report at any time,
             and we will then delete it.</li>
@@ -342,11 +427,19 @@
         <p>On Google Play the game is offered to players aged 13 and over. In Germany, a player can consent alone to
         a service like the gameplay statistics only from the age of 16 (Art. 8 GDPR). The app
         therefore asks whether you are 16 or older; below 16 the statistics stay off. Only a player who
-        later answers in Settings that they are now 16 or older can tick them. Cloud save remains available. The app asks no birth
+        later answers in Settings that they are now 16 or older can tick them. Cloud save remains available. The
+        <a href="#arena">arena</a> is also only for players aged 16 or older; Z&rsquo;tirom asks before the
+        first hand-in, and below 16 no hero can be handed in. The app asks no birth
         date. A parent or guardian can untick both choices, delete the cloud account in the app, or
         write to the contact address above, and we will delete what we hold.</p>
 
         <h2 id="changes">Changes to this policy</h2>
+
+        <p>Version 1.7 adds the weekly <a href="#arena">arena</a> of Conjunction 0.6.3: its own consent
+        from 16, what a hand-in sends, how the tournament runs on our computer, what other players see
+        in the table, on the season list and on Discord, how long each part is kept, how to leave, how
+        to have everything erased and how to report a name; Discord as a recipient; and the arena among
+        the reasons for network access.</p>
 
         <p>Version 1.6 describes cloud save as it now works: ticking it is the Google Play Games
         sign-in, and Google Play Games starts only then; the heroes are restored on a new device without
@@ -367,8 +460,9 @@
         the basis of this website&rsquo;s processing; the site now serves its own fonts. Version 1.2
         described a game that sent nothing by itself.</p>
 
-        <p>The app is in active development. Online leaderboards and advertising are not part of the
-        app today. If either is added, or the app starts to send anything not described here, this
+        <p>The app is in active development. Advertising and leaderboards beyond the arena&rsquo;s table
+        are not part of the app today. If either is added, or the app starts to send anything not
+        described here, this
         policy will be updated <em>before</em> the corresponding version is released, the version
         number and date above will change, the app will ask again where a new consent is needed, and
         the data safety declaration on the Play Store page will be updated to match.</p>
@@ -396,8 +490,9 @@
     </div>
 </footer>
 
-<!-- Maintainers: when advertising or a leaderboard are added, the policy text and the four-step
-     release rule live in docs/engineering/website.md in the game repo. -->
+<!-- Maintainers: when advertising or any other online feature is added, the policy text and the four-step
+     release rule live in docs/engineering/website.md in the game repo; the arena block describes
+     docs/engineering/arena-data-inventory.json there. -->
 
 </body>
 </html>

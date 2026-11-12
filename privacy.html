@@ -134,7 +134,11 @@
         and Link with Google reaches it again, as on another device. Either way the session and the
         Player ID are removed from the device, the heroes on the device stay, and ticking cloud save
         again starts a new anonymous account. If the cloud cannot be reached when you untick, the app
-        keeps the session and finishes this at the next start with a network.</p>
+        keeps the session and finishes this at the next start with a network. If the sign-in fails
+        right after you tick cloud save, the app takes the tick back and only signs out, without a
+        question and without deleting anything: an account no sign-in is linked to is then out of the
+        app&rsquo;s reach, as after an uninstall, and its copies stay in the cloud until you ask us to
+        delete them with the Player ID (see <a href="#rights">Your rights</a>).</p>
 
         <p>Ticking cloud save creates an anonymous cloud account for this installation at Unity Gaming
         Services Authentication, with a random Player ID, and signs in to it; it asks for no Google
@@ -185,8 +189,9 @@
         account and the Google link are kept until you delete the hero or the cloud account, in the
         app under Settings &rarr; Gameplay &rarr; Account or by
         <a href="/delete-account.html">writing to us</a>, or &mdash; for an account no sign-in is
-        linked to &mdash; until you untick cloud save. Unticking it does not delete an account you linked to
-        Google Play Games.</p>
+        linked to &mdash; until you untick cloud save and confirm the question. Unticking it does not delete
+        an account you linked to Google Play Games, and a sign-in that failed deletes nothing: such an
+        account and its copies are kept until you ask us to delete them.</p>
 
         <h2 id="usage-statistics">Usage statistics</h2>
 
@@ -456,7 +461,7 @@
         contacted only when you <a href="#link-google">link it</a> to move your heroes to another
         device; it says what an unlinked account loses with the installation; and unticking cloud save,
         after a question, deletes an account no sign-in is linked to with its copies, while a linked
-        account is only signed out.</p>
+        account is only signed out; a sign-in that fails takes the tick back and only signs out.</p>
 
         <p>Version 1.7 adds the weekly <a href="#arena">arena</a> of Conjunction 0.6.3: its own consent
         from 16, what a hand-in sends, how the tournament runs on our computer, what other players see

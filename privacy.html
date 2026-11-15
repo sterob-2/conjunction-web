@@ -19,7 +19,7 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.13 &middot; Last updated 14 November 2026</p>
+    <p class="stamp">Version 1.14 &middot; Last updated 15 November 2026</p>
 
     <div class="prose">
 
@@ -129,8 +129,8 @@
         already on its way may still arrive. Before unticking takes effect, the app asks you and says
         what happens to the cloud account. An account no sign-in is linked to is then deleted, with
         every hero&rsquo;s copy and backup kept under it, so nothing is left at Unity that you could no
-        longer reach; an account you linked to Google Play Games is kept, the app only signs out of it,
-        and Link with Google reaches it again, as on another device. Either way the session and the
+        longer reach; an account you linked to Google (or, in an earlier version, to Google Play Games) is
+        kept, the app only signs out of it, and Link with Google reaches it again, as on another device. Either way the session and the
         Player ID are removed from the device, the heroes on the device stay, and ticking cloud save
         again starts a new anonymous account. If the cloud cannot be reached when you untick, the app
         keeps the session and finishes this at the next start with a network. If the sign-in fails
@@ -150,15 +150,17 @@
         delete them with the Player ID (see <a href="#rights">Your rights</a>); unticking cloud save
         deletes it, as described above.</p>
 
-        <p id="link-google">To bring your heroes to another device, you can link Google Play Games to the
-        cloud account under Settings &rarr; Gameplay &rarr; Account &rarr; Link with Google. The app
-        starts the Google Play Games services only then &mdash; without that tap it does not contact
-        Google. Google authenticates you &mdash; by itself if you are already signed in to Google Play
-        Games on the device, otherwise in Google&rsquo;s own sign-in window, which needs a Google Play
-        Games profile &mdash; and gives the app a one-time code, which Unity Gaming Services
-        Authentication exchanges for your Google Play Games account identifier and keeps with your
-        cloud account. If you cancel or Google declines, nothing is linked and the backup goes on as
-        before. Google Ireland Limited processes your sign-in under its own
+        <p id="link-google">To bring your heroes to another device, you can link your Google account to
+        the cloud account under Settings &rarr; Gameplay &rarr; Account &rarr; Link with Google. Only
+        then does the app contact Google: Google&rsquo;s own sign-in sheet on your device lists the
+        Google accounts on it, you pick one, and Google gives the app a signed token for that account.
+        Unity Gaming Services Authentication checks the token and keeps your Google account identifier
+        with your cloud account; the token also names the account&rsquo;s e-mail address and name, which
+        neither the app nor Unity keeps. No Google Play Games profile is needed. If you close the sheet
+        or Google declines, nothing is linked and the backup goes on as before. If the Google account
+        you pick already belongs to another cloud account while yours has a sign-in of its own, nothing
+        is linked, moved or merged, and the app says so. Google Ireland Limited processes your sign-in
+        under its own
         <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">privacy policy</a>,
         as an independent controller.</p>
 
@@ -167,7 +169,17 @@
         device&rsquo;s own anonymous account with its copies, signs in to your linked account and
         brings your heroes into the device&rsquo;s free hero slots; the heroes already on the new
         device go up into that account. An account that has a linked sign-in is never deleted for this
-        move. A cloud account an earlier 0.6.2 build linked to Google stays linked.</p>
+        move.</p>
+
+        <p id="play-games-way-back">A cloud account that Conjunction 0.6.2 or 0.6.3 linked to Google Play
+        Games stays linked, and the app no longer offers to link Play Games. So that such an account is
+        found on a new device, the app first asks Google Play Games &mdash; without showing anything &mdash;
+        when you tap Link with Google on a device whose cloud account has no sign-in linked yet. If Play
+        Games signs you in by itself, Unity Gaming Services Authentication receives your Google Play
+        Games account identifier: if it belongs to an earlier cloud account, the device moves into that
+        account as described above and your Google account is linked to it as well; if it belongs to
+        none, the app takes the Play Games link off again at once. Without a Play Games profile on the
+        device, Play Games signs nobody in and nothing is sent.</p>
 
         <p>When the
         same hero changed on two devices, the app keeps the copy with more progress (level, then
@@ -189,8 +201,8 @@
         app under Settings &rarr; Gameplay &rarr; Account or by
         <a href="/delete-account.html">writing to us</a>, or &mdash; for an account no sign-in is
         linked to &mdash; until you untick cloud save and confirm the question. Unticking it does not delete
-        an account you linked to Google Play Games, and a sign-in that failed deletes nothing: such an
-        account and its copies are kept until you ask us to delete them.</p>
+        an account you linked to Google or Google Play Games, and a sign-in that failed deletes nothing:
+        such an account and its copies are kept until you ask us to delete them.</p>
 
         <h2 id="usage-statistics">Usage statistics</h2>
 
@@ -352,7 +364,8 @@
             its <a href="https://unity.com/legal/subprocessors" rel="noopener" target="_blank">sub-processor
             page</a>.</li>
             <li><strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4,
-            Ireland, for the Google Play Games sign-in you can link to your cloud account, as an independent controller.</li>
+            Ireland, for the Google sign-in you can link to your cloud account, and for the Google Play Games
+            sign-in that accounts of earlier versions keep, as an independent controller.</li>
             <li><strong>Discord Inc.</strong>, 444 De Haro Street, Suite 200, San Francisco, CA 94107,
             United States, hosts the Conjunction Discord server, where we post the
             <a href="#arena">arena&rsquo;s</a> weekly winners by arena name, level and weapon. Discord
@@ -494,6 +507,13 @@
         write to the contact address above, and we will delete what we hold.</p>
 
         <h2 id="changes">Changes to this policy</h2>
+
+        <p>Version 1.14 says that <a href="#link-google">Link with Google</a> now links your Google account
+        itself, picked in Google&rsquo;s own sign-in sheet, with no Google Play Games profile needed, and
+        that Unity keeps the Google account identifier with your cloud account, not the e-mail address or
+        name the token names; that a Google account which already holds another cloud account is never
+        moved; and that accounts linked to Google Play Games in 0.6.2 or 0.6.3 stay linked and are
+        <a href="#play-games-way-back">found again through Play Games</a> on a new device.</p>
 
         <p>Version 1.13 adds the season leaderboards: what the app reports when a hero completes an act
         (the hero&rsquo;s identifier, the season, the in-game time, the moment and the app version), that

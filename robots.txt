@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /arena-results/
 Allow: /
 
 Sitemap: https://conjunctiongame.com/sitemap.xml

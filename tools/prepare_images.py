@@ -7,6 +7,7 @@ writes into assets/img/.
 """
 
 import os
+import re
 from pathlib import Path
 
 from PIL import Image
@@ -16,6 +17,9 @@ SITE = Path(__file__).resolve().parents[1]
 # The game project is expected next to this one; CONJUNCTION_REPO overrides that.
 GAME = Path(os.environ.get("CONJUNCTION_REPO") or SITE.parent / "conjunction-b")
 OUT = SITE / "assets" / "img"
+ARENA_OUT = OUT / "arena"
+ARENA_ART = GAME / "Assets/Art/UI/Arena"
+PLATES_CSS = SITE / "assets" / "css" / "arena-plates.css"
 
 WEBP_QUALITY = 84
 
@@ -68,6 +72,55 @@ def build_og_image() -> None:
     card.convert("RGB").save(OUT / "og-image.jpg", "JPEG", quality=86, optimize=True)
 
 
+# The arena's painted parts for the results pages (TASK-1502): the game's own art, scaled for the web. A plate
+# scales by its nine-slice borders, read from the sprite's .meta, so the web plate and the game plate cannot drift.
+ARENA_PLATE_SCALE = 0.5      # the web file against the game's source
+ARENA_PLATE_SHOWN = 0.5      # the drawn border against the web file's slice: crisp on a 2x phone screen
+ARENA_PLATES = {             # web name: (game sprite, how its edges and middle fill the box)
+    "row-gold": ("arena_row_gold", "stretch"), "row-silver": ("arena_row_silver", "stretch"),
+    "row-bronze": ("arena_row_bronze", "stretch"), "row-stone": ("arena_row_stone", "stretch"),
+    "plaque": ("arena_plaque", "stretch"), "section-band": ("arena_section_band", "stretch"),
+    # A panel grows far past its painting's height; tiled, its stone keeps its grain instead of drawing streaks.
+    "panel-iron": ("arena_panel_iron", "round"), "panel-gold": ("arena_panel_gold", "round"),
+}
+ARENA_PICTURES = {           # web name: (game sprite, web width)
+    "hall": ("arena_balcony_background", 1080), "champion-plate": ("arena_champion_plate", 1000),
+    "laurel-gold": ("arena_laurel_gold", 240), "laurel-silver": ("arena_laurel_silver", 240),
+    "laurel-bronze": ("arena_laurel_bronze", 240),
+}
+SPRITE_BORDER = re.compile(r"spriteBorder: \{x: (\d+), y: (\d+), z: (\d+), w: (\d+)\}")
+
+
+def sprite_border(sprite: str) -> tuple[int, int, int, int]:
+    """The sprite's nine-slice border as CSS orders it - top, right, bottom, left - from Unity's x left, y bottom,
+    z right, w top."""
+    meta = (ARENA_ART / f"{sprite}.png.meta").read_text(encoding="utf-8")
+    match = SPRITE_BORDER.search(meta)
+    if not match or not any(int(value) for value in match.groups()):
+        raise SystemExit(f"{sprite}.png.meta has no nine-slice border")
+    left, bottom, right, top = (int(value) for value in match.groups())
+    return top, right, bottom, left
+
+
+def plate_rule(name: str, border: tuple[int, int, int, int], repeat: str) -> str:
+    sliced = " ".join(str(round(side * ARENA_PLATE_SCALE)) for side in border)
+    shown = " ".join(f"{round(side * ARENA_PLATE_SCALE * ARENA_PLATE_SHOWN)}px" for side in border)
+    return (f".plate-{name} {{ border-style: solid; border-width: {shown}; "
+            f"border-image: url(/assets/img/arena/{name}.webp) {sliced} fill / {shown} / 0 {repeat}; }}")
+
+
+def build_arena() -> None:
+    ARENA_OUT.mkdir(parents=True, exist_ok=True)
+    rules = ["/* Written by tools/prepare_images.py from the game's arena sprites and their .meta borders - do not edit. */"]
+    for name, (sprite, repeat) in ARENA_PLATES.items():
+        art = Image.open(ARENA_ART / f"{sprite}.png")
+        save_webp(fit_width(art, round(art.width * ARENA_PLATE_SCALE)), f"arena/{name}.webp")
+        rules.append(plate_rule(name, sprite_border(sprite), repeat))
+    for name, (sprite, width) in ARENA_PICTURES.items():
+        save_webp(fit_width(Image.open(ARENA_ART / f"{sprite}.png"), width), f"arena/{name}.webp")
+    PLATES_CSS.write_text("\n".join(rules) + "\n", encoding="utf-8")
+
+
 def build() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
 
@@ -91,9 +144,10 @@ def build() -> None:
         save_webp(fit_width(Image.open(shots / f"{name}.jpg"), 720), f"shot-{name[3:]}.webp")
 
     build_og_image()
+    build_arena()
 
-    for path in sorted(OUT.iterdir()):
-        print(f"{path.stat().st_size / 1024:8.1f} KB  {path.name}")
+    for path in sorted(OUT.rglob("*.*")):
+        print(f"{path.stat().st_size / 1024:8.1f} KB  {path.relative_to(OUT)}")
 
 
 if __name__ == "__main__":

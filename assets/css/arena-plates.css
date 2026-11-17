@@ -1,0 +1,9 @@
+/* Written by tools/prepare_images.py from the game's arena sprites and their .meta borders - do not edit. */
+.plate-row-gold { border-style: solid; border-width: 14px 24px 14px 86px; border-image: url(/assets/img/arena/row-gold.webp) 28 48 28 172 fill / 14px 24px 14px 86px / 0 stretch; }
+.plate-row-silver { border-style: solid; border-width: 14px 24px 14px 86px; border-image: url(/assets/img/arena/row-silver.webp) 28 48 28 172 fill / 14px 24px 14px 86px / 0 stretch; }
+.plate-row-bronze { border-style: solid; border-width: 14px 24px 14px 86px; border-image: url(/assets/img/arena/row-bronze.webp) 28 48 28 172 fill / 14px 24px 14px 86px / 0 stretch; }
+.plate-row-stone { border-style: solid; border-width: 14px 24px 14px 86px; border-image: url(/assets/img/arena/row-stone.webp) 28 48 28 172 fill / 14px 24px 14px 86px / 0 stretch; }
+.plate-plaque { border-style: solid; border-width: 18px 52px 18px 52px; border-image: url(/assets/img/arena/plaque.webp) 35 105 35 105 fill / 18px 52px 18px 52px / 0 stretch; }
+.plate-section-band { border-style: solid; border-width: 11px 50px 12px 50px; border-image: url(/assets/img/arena/section-band.webp) 22 100 24 100 fill / 11px 50px 12px 50px / 0 stretch; }
+.plate-panel-iron { border-style: solid; border-width: 28px 36px 27px 36px; border-image: url(/assets/img/arena/panel-iron.webp) 56 72 54 72 fill / 28px 36px 27px 36px / 0 round; }
+.plate-panel-gold { border-style: solid; border-width: 16px 30px 16px 30px; border-image: url(/assets/img/arena/panel-gold.webp) 31 60 31 60 fill / 16px 30px 16px 30px / 0 round; }

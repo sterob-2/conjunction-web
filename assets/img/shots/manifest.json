@@ -1,0 +1,50 @@
+{
+  "version": "0.6.3",
+  "versionCode": 60306,
+  "shots": [
+    {
+      "file": "store-01-world-map.webp",
+      "caption": "The world map of Act I: the town and the fields around it, cleared one by one",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "file": "store-02-fight.webp",
+      "caption": "A fight in progress, every blow read out in the combat log",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "file": "store-03-skill-wheel.webp",
+      "caption": "The skill wheel, its skills and nodes learned along the way",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "file": "store-04-equipment.webp",
+      "caption": "The character sheet: the hero's equipment, slot by slot",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "file": "store-05-arena.webp",
+      "caption": "Z'Tirom's arena: the week's table of the heroes the players handed in",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "file": "store-06-act-ii-map.webp",
+      "caption": "Act II: the Desolated Lands beyond the gate, the Pool of Sacrifice waiting",
+      "width": 720,
+      "height": 1280
+    }
+  ],
+  "files": [
+    "store-01-world-map.webp",
+    "store-02-fight.webp",
+    "store-03-skill-wheel.webp",
+    "store-04-equipment.webp",
+    "store-05-arena.webp",
+    "store-06-act-ii-map.webp"
+  ]
+}

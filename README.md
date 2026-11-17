@@ -14,8 +14,17 @@ CNAME                 the custom domain, read by GitHub Pages
 .nojekyll             serve the files as they are, do not run Jekyll
 assets/css/site.css
 assets/img/           web-sized art, produced by the script below
+assets/img/shots/     the screenshots of the latest Closed build, written by the game repo
 tools/prepare_images.py
 ```
+
+## The screenshots come with each Closed build
+
+The galleries (`<div class="shots" data-store-shots="1-3">` and `"4-6"` in `index.html`) are not edited by
+hand. When a build is promoted to the Closed track, the game repo's `tools/play/publish_internal.py --promote`
+writes the build's store set into `assets/img/shots/` with a `manifest.json` naming the build, rewrites the
+galleries from it and removes every picture the set no longer has (`tools/play/store_shots.py` in the game repo,
+TASK-1517). Commit and push what it wrote.
 
 ## The images are generated, not hand-cut
 

@@ -76,9 +76,8 @@ nothing to buy or install.
 
 ## A note on the privacy policy
 
-It describes what the app does today — which is nothing: no accounts, no analytics, no advertising,
-no network traffic at all. If that ever changes, the policy is updated *before* the release that
-changes it, and the version and date at the top of the page say so.
+It describes what the app and this website do today. Whatever changes what they send or keep updates the
+policy *before* the release that changes it, and the version and date at the top of the page say so.
 
 ## Licence
 

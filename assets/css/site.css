@@ -293,3 +293,10 @@ footer {
     font-size: 0.95rem;
     margin: 1.6rem 0;
 }
+
+/* -- Sign-in page -------------------------------------------------------- */
+
+.google-button { min-height: 44px; margin: 1.6rem 0; }
+.arena-names li { color: var(--ink); font-size: 1.05rem; }
+button.btn { cursor: pointer; margin: 0.6rem 0 1.4rem; }
+.session-end { font-size: 0.92rem; }

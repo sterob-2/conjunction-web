@@ -2,10 +2,11 @@
 
 The website for **Conjunction**, a dark fantasy RPG for Android.
 
-Three pages, no framework, no build step: plain HTML and one stylesheet, served by GitHub Pages.
+No framework, no build step: plain HTML, one stylesheet and two small script modules, served by GitHub Pages.
 
 ```
 index.html            landing page
+sign-in.html          sign-in with the Google account linked in the game; shows the player's arena names
 privacy.html          privacy policy
 legal-notice.html     Impressum (§ 5 DDG)
 delete-account.html   how to delete the cloud account (Google Play's account deletion link)
@@ -13,9 +14,28 @@ delete-account.html   how to delete the cloud account (Google Play's account del
 CNAME                 the custom domain, read by GitHub Pages
 .nojekyll             serve the files as they are, do not run Jekyll
 assets/css/site.css
+assets/js/web-session.js    the sign-in against Unity Gaming Services, without the DOM
+assets/js/sign-in-page.js   the sign-in page's buttons and lines
 assets/img/           web-sized art, produced by the script below
 assets/img/shots/     the screenshots of the latest Closed build, written by the game repo
+tests/                node --test, for the script modules
 tools/prepare_images.py
+```
+
+## Signing in
+
+`sign-in.html` loads Google's sign-in, sends Google's ID token to Unity Authentication with `signInOnly`, so a Google
+account the game never linked makes no player, and swaps the first session at once for a child session that only
+Cloud Save and Cloud Code accept and that ends seven days after the sign-in. The child is kept in `sessionStorage`;
+Sign out drops it. What Unity accepts from this origin was measured on 2026-11-24 (the game repo's
+`docs/evidence/task-1506/`). Two settings outside this repo carry it: the Google web client in `web-session.js`
+lists `https://conjunctiongame.com` among its authorised JavaScript origins, and Unity's Google provider names the
+same client.
+
+The tests need Node 22 or later and nothing else:
+
+```powershell
+node --test
 ```
 
 ## The screenshots come with each Closed build

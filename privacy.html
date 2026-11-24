@@ -19,7 +19,7 @@
     <a class="backlink" href="/">&larr; Conjunction</a>
 
     <h1>Privacy Policy</h1>
-    <p class="stamp">Version 1.18 &middot; Last updated 20 November 2026</p>
+    <p class="stamp">Version 1.19 &middot; Last updated 24 November 2026</p>
 
     <div class="prose">
 
@@ -43,7 +43,9 @@
         boxes for cloud save and statistics start empty, and you can change either at any time under
         Settings &rarr; Gameplay &rarr; Privacy; you leave the arena at Z&rsquo;Tirom. There is no
         advertising and no tracking across other apps. A <a href="#feedback">feedback report</a>
-        reaches us only when you send it yourself.</p>
+        reaches us only when you send it yourself. On this website you can
+        <a href="#website-sign-in">sign in</a> with the Google account you linked in the game to see your
+        arena names; the website keeps that session only in your browser tab, for seven days at most.</p>
 
         <h2>Who is responsible</h2>
 
@@ -356,15 +358,17 @@
 
         <ul>
             <li><strong>Unity Technologies SF</strong>, 116 New Montgomery Street, San Francisco, CA
-            94105, United States, runs Authentication, Cloud Save and Analytics for us as our
-            processor (Art. 28 GDPR) under the
+            94105, United States, runs Authentication, Cloud Save and Analytics for the app, and
+            Authentication and Cloud Save for the <a href="#website-sign-in">sign-in on this website</a>,
+            for us as our processor (Art. 28 GDPR) under the
             <a href="https://unity.com/legal/unity-data-processing-addendum-dpa" rel="noopener" target="_blank">Unity
             Data Processing Addendum</a>. Unity uses hosting and infrastructure providers listed on
             its <a href="https://unity.com/legal/subprocessors" rel="noopener" target="_blank">sub-processor
             page</a>.</li>
             <li><strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4,
-            Ireland, for the Google sign-in you can link to your cloud account, and for the Google Play Games
-            sign-in that accounts of earlier versions keep, as an independent controller.</li>
+            Ireland, for the Google sign-in you can link to your cloud account and use on this website,
+            and for the Google Play Games sign-in that accounts of earlier versions keep, as an independent
+            controller.</li>
             <li><strong>Discord Inc.</strong>, 444 De Haro Street, Suite 200, San Francisco, CA 94107,
             United States, hosts the Conjunction Discord server, where we post the
             <a href="#arena">arena&rsquo;s</a> weekly winners by arena name, level and weapon. Discord
@@ -375,8 +379,8 @@
             website</a>.</li>
         </ul>
 
-        <p>Because Unity Technologies SF is in the United States, data the app sends to Unity is
-        transferred there. For this transfer the Unity Data Processing Addendum incorporates the EU
+        <p>Because Unity Technologies SF is in the United States, data the app or the sign-in page
+        sends to Unity is transferred there. For this transfer the Unity Data Processing Addendum incorporates the EU
         Standard Contractual Clauses (Commission Decision 2021/914, module two, controller to
         processor). You can ask for a copy at the contact address above. All data the app sends
         travels encrypted (HTTPS).</p>
@@ -452,8 +456,36 @@
         states that, and how it safeguards transfers to the United States, in the
         <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub
         General Privacy Statement</a>. The site sets no cookies, runs no tracking or analytics, and
-        serves its fonts itself, so your browser contacts no other server to display these
-        pages.</p>
+        serves its fonts itself, so your browser contacts no other server to display these pages
+        &mdash; except the sign-in page, which loads Google&rsquo;s sign-in and talks to Unity Gaming
+        Services as described next.</p>
+
+        <h2 id="website-sign-in">Signing in on this website</h2>
+
+        <p>If you linked your Google account in the game (<a href="#link-google">Link with Google</a>),
+        you can sign in to the same cloud account on the <a href="/sign-in.html">sign-in page</a>, which
+        then shows the arena names of the heroes you handed in at the <a href="#arena">arena</a>. Only on
+        that page, and only while you are signed out, does your browser load Google&rsquo;s sign-in from
+        accounts.google.com; Google then receives your IP address and browser data, and its own cookies
+        if you are signed in to Google in this browser, and processes them under its own
+        <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">privacy policy</a>
+        as an independent controller. When you pick your Google account, Google gives the page a signed
+        token for it. The page sends that token to Unity Gaming Services Authentication, which checks it
+        and signs in only to the cloud account that Google account is already linked to: it never creates
+        an account. If the Google account is not linked in the game, the page says so, and nothing is
+        signed in or stored.</p>
+
+        <p>The page swaps that sign-in at once for a narrower website session and drops the first one. The
+        website session is accepted only by Cloud Save and Cloud Code, the services that hold your saved
+        data; it cannot link or unlink a sign-in, change the account or delete it, and Unity no longer
+        accepts it seven days after you signed in. The page keeps it, with your Player ID, only in your
+        browser&rsquo;s session storage for this tab: it is gone when you tap Sign out or close the tab. The
+        page uses the session only to read your arena entries in Cloud Save; it writes nothing and sets no
+        cookies.</p>
+
+        <p>Legal basis: the sign-in you ask for by choosing your Google account on the sign-in page,
+        Art. 6(1)(b) GDPR; keeping the website session in your browser is strictly necessary for it
+        (&sect; 25(2) no. 2 TDDDG).</p>
 
         <h2 id="rights">Your rights</h2>
 
@@ -506,6 +538,11 @@
         write to the contact address above, and we will delete what we hold.</p>
 
         <h2 id="changes">Changes to this policy</h2>
+
+        <p>Version 1.19 adds <a href="#website-sign-in">signing in on this website</a> with the Google
+        account linked in the game: Google&rsquo;s sign-in on the sign-in page only, a sign-in at Unity
+        that never creates an account, and a narrower website session that lasts seven days at most, is
+        kept only in the browser tab and ends with Sign out.</p>
 
         <p>Version 1.18 removes the level band from the arena: the week&rsquo;s table and the results pages show one table of all levels, so a hero&rsquo;s level band is no longer stored or published.</p>
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sign in - Conjunction</title>
+<meta name="description" content="Sign in to your Conjunction account with the Google account you linked in the game.">
+<meta name="robots" content="noindex">
+
+<link rel="canonical" href="https://conjunctiongame.com/sign-in.html">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="module" src="/assets/js/sign-in-page.js"></script>
+</head>
+<body>
+
+<div class="wrap legal">
+    <a class="backlink" href="/">&larr; Conjunction</a>
+
+    <h1>Sign in</h1>
+    <p class="stamp">Your Conjunction account on the website</p>
+
+    <div class="prose">
+
+        <p class="note" id="sign-in-line" role="status" aria-live="polite" hidden></p>
+
+        <div id="signed-out">
+            <p>Sign in with the Google account you linked to your heroes in the game. The website only
+            reads your account; it changes nothing in it and never makes a new one.</p>
+
+            <div class="google-button" id="google-button"></div>
+
+            <p>Not linked yet? In the game, open <strong>Settings</strong>, then <strong>Gameplay</strong>,
+            then <strong>Account</strong>, and tap <strong>Link with Google</strong>. Then sign in here with
+            the same Google account.</p>
+
+            <p>What signing in sends and keeps, and for how long, is in the
+            <a href="/privacy.html#website-sign-in">privacy policy</a>.</p>
+        </div>
+
+        <div id="signed-in" hidden>
+            <h2>Your arena names</h2>
+
+            <ul class="arena-names" id="arena-names"></ul>
+            <p id="no-arena-names" hidden>None of your heroes is handed in at the arena yet.</p>
+
+            <button type="button" class="btn" id="sign-out">Sign out</button>
+
+            <p class="session-end">The website session ends when you sign out or close this tab, and at
+            the latest seven days after you signed in.</p>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="wrap footer__grid">
+        <div class="footer__mark">
+            <img src="/assets/img/icon-192.png" alt="" width="38" height="38">
+            <span>&copy; 2026 Conjunction</span>
+        </div>
+        <nav class="footer__nav">
+            <a href="/privacy.html">Privacy</a>
+            <a href="/legal-notice.html">Legal notice</a>
+            <a href="mailto:info@conjunctiongame.com">Contact</a>
+        </nav>
+    </div>
+</footer>
+
+</body>
+</html>

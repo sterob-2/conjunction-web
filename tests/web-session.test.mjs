@@ -2,7 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
     ARENA_ENTRY_KEYS, Failure, NOT_LINKED, STORAGE_KEY, WEB_AUDIENCES, WEB_SESSION_SECONDS,
-    arenaNamesIn, forgetSession, keepSession, readArenaNames, refreshAccess, restoreSession, signInWithGoogle,
+    arenaNamesIn, endsTheSession, forgetSession, keepSession, readArenaNames, refreshAccess, restoreSession,
+    signInWithGoogle,
 } from "../assets/js/web-session.js";
 
 const NOW = Date.UTC(2026, 10, 24, 9, 0, 0);
@@ -55,10 +56,8 @@ test("signInWithGoogle swaps the first session for a child scoped to Cloud Save 
     const outcome = await signInWithGoogle("google-id-token", net);
     assert.deepEqual(calls[1].body, { sessionToken: "full-session", audiences: ["cloud-save", "cloud-code"], ttlSeconds: 604800 });
     assert.equal(outcome.status, "signedIn");
-    assert.deepEqual(outcome.session, {
-        playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK,
-        access: { token: "web-access", endsAt: NOW + 3599 * 1000 },
-    });
+    assert.deepEqual(outcome.session,
+        { playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK, accessToken: "web-access" });
 });
 
 test("the website session lives days, not a year", () => {
@@ -93,6 +92,19 @@ test("no answer from Unity is told as unreachable", async () => {
     assert.equal((await signInWithGoogle("google-id-token", net)).failure, Failure.UNREACHABLE);
 });
 
+test("an answer cut off on its way is told as unreachable", async () => {
+    const cutOff = { ok: true, status: 200, text: async () => { throw new TypeError("network error"); } };
+    const net = { fetch: async () => cutOff, now: () => NOW };
+    assert.equal((await signInWithGoogle("google-id-token", net)).failure, Failure.UNREACHABLE);
+});
+
+test("an answer whose body is no JSON object is refused, not a crash", async () => {
+    const net = { fetch: async () => new Response("null", { status: 400 }), now: () => NOW };
+    const outcome = await signInWithGoogle("google-id-token", net);
+    assert.equal(outcome.failure, Failure.REFUSED);
+    assert.equal(outcome.answer.detail, "null");
+});
+
 test("a busy Unity is told as busy", async () => {
     for (const status of [429, 503]) {
         const { net } = unity([{ method: "POST", path: "/external-token/google.com", status, answer: { status } }]);
@@ -121,8 +133,16 @@ test("refreshAccess presents only the kept child session and keeps its end date"
     const { net, calls } = unity([{ ...CHILD_SESSION, answer: { ...CHILD_SESSION.answer, idToken: "web-access-2" } }]);
     const outcome = await refreshAccess(kept, net);
     assert.deepEqual(calls[0].body, { sessionToken: "web-session" });
-    assert.equal(outcome.session.access.token, "web-access-2");
+    assert.equal(outcome.session.accessToken, "web-access-2");
     assert.equal(outcome.session.endsAt, NOW + 1000);
+});
+
+test("only a failed refresh that reached Unity ends the kept session", () => {
+    assert.equal(endsTheSession(Failure.UNREACHABLE), false);
+    assert.equal(endsTheSession(Failure.BUSY), false);
+    assert.equal(endsTheSession(Failure.RAN_OUT), true);
+    assert.equal(endsTheSession(Failure.REFUSED), true);
+    assert.equal(endsTheSession(Failure.NOT_SET_UP), true);
 });
 
 test("a session Unity says ran out is told as ran out", async () => {
@@ -140,8 +160,7 @@ test("a session past its end date is not presented to Unity at all", async () =>
 });
 
 test("readArenaNames reads the player's arena entries with the website's access", async () => {
-    const session = { playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK,
-        access: { token: "web-access", endsAt: NOW + 3599000 } };
+    const session = { playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK, accessToken: "web-access" };
     const { net, calls } = unity([{ method: "GET", path: "/players/player-1/items",
         answer: { results: [{ key: "arenaEntry2", value: entry(2, "Grimwald") }] } }]);
     const read = await readArenaNames(session, net);
@@ -167,8 +186,7 @@ test("arenaNamesIn lists each track's entries in slot order and skips values the
 
 test("keepSession stores the child session and its end, never an access token", () => {
     const storage = memoryStorage();
-    keepSession(storage, { playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK,
-        access: { token: "web-access", endsAt: NOW + 3599000 } });
+    keepSession(storage, { playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK, accessToken: "web-access" });
     assert.deepEqual(JSON.parse(storage.getItem(STORAGE_KEY)),
         { playerId: "player-1", sessionToken: "web-session", endsAt: NOW + A_WEEK });
 });

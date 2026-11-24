@@ -30,14 +30,17 @@
             <p>Sign in with the Google account you linked to your heroes in the game. The website only
             reads your account; it changes nothing in it and never makes a new one.</p>
 
-            <div class="google-button" id="google-button"></div>
+            <div class="google-button">
+                <button type="button" class="btn" id="use-google">Sign in with Google</button>
+                <div id="google-button" hidden></div>
+            </div>
 
             <p>Not linked yet? In the game, open <strong>Settings</strong>, then <strong>Gameplay</strong>,
             then <strong>Account</strong>, and tap <strong>Link with Google</strong>. Then sign in here with
             the same Google account.</p>
 
-            <p>What signing in sends and keeps, and for how long, is in the
-            <a href="/privacy.html#website-sign-in">privacy policy</a>.</p>
+            <p>Your browser contacts Google only when you tap Sign in with Google. What signing in sends and
+            keeps, and for how long, is in the <a href="/privacy.html#website-sign-in">privacy policy</a>.</p>
         </div>
 
         <div id="signed-in" hidden>
@@ -46,10 +49,10 @@
             <ul class="arena-names" id="arena-names"></ul>
             <p id="no-arena-names" hidden>None of your heroes is handed in at the arena yet.</p>
 
-            <button type="button" class="btn" id="sign-out">Sign out</button>
+            <button type="button" class="btn sign-out" id="sign-out">Sign out</button>
 
-            <p class="session-end">The website session ends when you sign out or close this tab, and at
-            the latest seven days after you signed in.</p>
+            <p class="session-end">Sign out removes the website session from this browser tab. It runs out
+            by itself seven days after you signed in.</p>
         </div>
 
     </div>

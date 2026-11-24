@@ -73,33 +73,33 @@ async function swapForTheWebSession(firstSession, net) {
         body: { sessionToken: firstSession.sessionToken, audiences: WEB_AUDIENCES, ttlSeconds: WEB_SESSION_SECONDS },
     });
     if (!child.ok) return failed(failureOf(child), child);
-    const session = {
+    return signedIn({
         playerId: child.body.userId,
         sessionToken: child.body.sessionToken,
         endsAt: startedAt + WEB_SESSION_SECONDS * MILLISECONDS,
-    };
-    return signedIn(withAccess(session, child.body, startedAt));
+        accessToken: child.body.idToken,
+    });
 }
 
 /** A fresh access for a session kept from earlier; Unity keeps the child's services and end date on every refresh. */
 export async function refreshAccess(session, net) {
     if (hasEnded(session, net.now())) return failed(Failure.RAN_OUT);
-    const startedAt = net.now();
     const refreshed = await call(net, "POST", `${AUTHENTICATION}/session-token`,
         { body: { sessionToken: session.sessionToken } });
     if (!refreshed.ok) return failed(failureOf(refreshed), refreshed);
-    return signedIn(withAccess({ ...session, sessionToken: refreshed.body.sessionToken }, refreshed.body, startedAt));
+    return signedIn({ ...session, sessionToken: refreshed.body.sessionToken, accessToken: refreshed.body.idToken });
 }
 
-function withAccess(session, answer, startedAt) {
-    return { ...session, access: { token: answer.idToken, endsAt: startedAt + answer.expiresIn * MILLISECONDS } };
+/** Whether a failed refresh means the kept session is no good any more; no answer or a busy service leaves it be. */
+export function endsTheSession(failure) {
+    return failure !== Failure.UNREACHABLE && failure !== Failure.BUSY;
 }
 
 /** The arena names of the player's handed-in heroes, as the game wrote them into his entries; read only. */
 export async function readArenaNames(session, net) {
     const query = ARENA_ENTRY_KEYS.map(key => `keys=${encodeURIComponent(key)}`).join("&");
     const read = await call(net, "GET", `${PLAYER_DATA}/${encodeURIComponent(session.playerId)}/items?${query}`,
-        { access: session.access.token });
+        { access: session.accessToken });
     if (!read.ok) return { ok: false, failure: failureOf(read), answer: read };
     return { ok: true, names: arenaNamesIn(read.body.results ?? []) };
 }
@@ -114,7 +114,7 @@ export function arenaNamesIn(items) {
     }));
 }
 
-/** Keeps the session in the tab's storage without its access, which every page load asks for anew. */
+/** Keeps the session in the tab's storage without its access token, which every page load asks for anew. */
 export function keepSession(storage, session) {
     const { playerId, sessionToken, endsAt } = session;
     storage.setItem(STORAGE_KEY, JSON.stringify({ playerId, sessionToken, endsAt }));
@@ -160,25 +160,27 @@ function failureOf(answer) {
     return Failure.REFUSED;
 }
 
-/** One call to Unity: the answer's status, body and RFC 7807 title and detail; status 0 when no answer came. */
+/** One call to Unity: the answer's status, body and RFC 7807 title and detail; status 0 when no whole answer came. */
 async function call(net, method, url, { body, access } = {}) {
     const headers = { "ProjectId": PROJECT_ID, "UnityEnvironment": ENVIRONMENT, "Error-Version": "v1" };
     if (body !== undefined) headers["Content-Type"] = "application/json";
     if (access !== undefined) headers["Authorization"] = `Bearer ${access}`;
-    let response;
+    let response, text;
     try {
         response = await net.fetch(url, { method, headers, body: body === undefined ? undefined : JSON.stringify(body) });
+        text = await response.text();
     } catch (unreached) {
         return { ok: false, status: 0, detail: String(unreached) };
     }
-    const answer = await readBody(response);
+    const answer = bodyOf(text);
     return { ok: response.ok, status: response.status, body: answer, title: answer.title, detail: answer.detail };
 }
 
-async function readBody(response) {
-    const text = await response.text();
+/** The answer's JSON object; anything else is kept as its detail. */
+function bodyOf(text) {
     try {
-        return text ? JSON.parse(text) : {};
+        const parsed = text ? JSON.parse(text) : {};
+        return parsed !== null && typeof parsed === "object" ? parsed : { detail: text };
     } catch (notJson) {
         return { detail: text };
     }

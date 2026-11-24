@@ -455,21 +455,23 @@
         secure information site, Art. 6(1)(f) GDPR. GitHub decides how long it keeps these logs and
         states that, and how it safeguards transfers to the United States, in the
         <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub
-        General Privacy Statement</a>. The site sets no cookies, runs no tracking or analytics, and
-        serves its fonts itself, so your browser contacts no other server to display these pages
-        &mdash; except the sign-in page, which loads Google&rsquo;s sign-in and talks to Unity Gaming
-        Services as described next.</p>
+        General Privacy Statement</a>. Apart from Google&rsquo;s sign-in, which the sign-in page loads
+        only when you tap Sign in with Google (described next), the site sets no cookies, runs no tracking
+        or analytics, and serves its fonts itself, so your browser contacts no other server to display
+        these pages.</p>
 
         <h2 id="website-sign-in">Signing in on this website</h2>
 
         <p>If you linked your Google account in the game (<a href="#link-google">Link with Google</a>),
         you can sign in to the same cloud account on the <a href="/sign-in.html">sign-in page</a>, which
-        then shows the arena names of the heroes you handed in at the <a href="#arena">arena</a>. Only on
-        that page, and only while you are signed out, does your browser load Google&rsquo;s sign-in from
-        accounts.google.com; Google then receives your IP address and browser data, and its own cookies
-        if you are signed in to Google in this browser, and processes them under its own
+        then shows the arena names of the heroes you handed in at the <a href="#arena">arena</a>. Your
+        browser loads Google&rsquo;s sign-in from accounts.google.com only when you tap Sign in with Google
+        on that page. Google then receives your IP address and browser data, and its own cookies if you
+        are signed in to Google in this browser, and processes them under its own
         <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">privacy policy</a>
-        as an independent controller. When you pick your Google account, Google gives the page a signed
+        as an independent controller. Google&rsquo;s sign-in also stores a cookie named
+        <code>g_state</code> on this site, holding the state of its sign-in prompt, for 180 days unless
+        you delete it in your browser. When you pick your Google account, Google gives the page a signed
         token for it. The page sends that token to Unity Gaming Services Authentication, which checks it
         and signs in only to the cloud account that Google account is already linked to: it never creates
         an account. If the Google account is not linked in the game, the page says so, and nothing is
@@ -479,12 +481,15 @@
         website session is accepted only by Cloud Save and Cloud Code, the services that hold your saved
         data; it cannot link or unlink a sign-in, change the account or delete it, and Unity no longer
         accepts it seven days after you signed in. The page keeps it, with your Player ID, only in your
-        browser&rsquo;s session storage for this tab: it is gone when you tap Sign out or close the tab. The
-        page uses the session only to read your arena entries in Cloud Save; it writes nothing and sets no
-        cookies.</p>
+        browser&rsquo;s session storage for this tab (a tab the browser restores or duplicates keeps a copy).
+        Sign out deletes it from the tab, and so does closing the tab for good. Unity offers no way to end
+        such a session early, so it stays valid there until its seven days are over, while nothing on the
+        page holds it any more. The page uses the session only to read your arena entries in Cloud Save; it
+        writes nothing, and sets no cookie of its own.</p>
 
-        <p>Legal basis: the sign-in you ask for by choosing your Google account on the sign-in page,
-        Art. 6(1)(b) GDPR; keeping the website session in your browser is strictly necessary for it
+        <p>Legal basis: the sign-in you ask for by tapping Sign in with Google and choosing your Google
+        account, Art. 6(1)(b) GDPR; keeping the website session in your browser, and Google&rsquo;s
+        <code>g_state</code> cookie, which is stored only after that tap, are strictly necessary for it
         (&sect; 25(2) no. 2 TDDDG).</p>
 
         <h2 id="rights">Your rights</h2>
@@ -540,9 +545,10 @@
         <h2 id="changes">Changes to this policy</h2>
 
         <p>Version 1.19 adds <a href="#website-sign-in">signing in on this website</a> with the Google
-        account linked in the game: Google&rsquo;s sign-in on the sign-in page only, a sign-in at Unity
-        that never creates an account, and a narrower website session that lasts seven days at most, is
-        kept only in the browser tab and ends with Sign out.</p>
+        account linked in the game: Google&rsquo;s sign-in on the sign-in page only, loaded when you tap
+        Sign in with Google, with its <code>g_state</code> cookie; a sign-in at Unity
+        that never creates an account, and a narrower website session that lasts seven days at most and is
+        kept only in the browser tab, which Sign out clears.</p>
 
         <p>Version 1.18 removes the level band from the arena: the week&rsquo;s table and the results pages show one table of all levels, so a hero&rsquo;s level band is no longer stored or published.</p>
 

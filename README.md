@@ -24,10 +24,11 @@ tools/prepare_images.py
 
 ## Signing in
 
-`sign-in.html` loads Google's sign-in, sends Google's ID token to Unity Authentication with `signInOnly`, so a Google
-account the game never linked makes no player, and swaps the first session at once for a child session that only
-Cloud Save and Cloud Code accept and that ends seven days after the sign-in. The child is kept in `sessionStorage`;
-Sign out drops it. What Unity accepts from this origin was measured on 2026-11-24 (the game repo's
+`sign-in.html` loads Google's sign-in only after the player taps its own Sign in with Google (Google's script keeps a
+`g_state` cookie on the site, named in the privacy policy), sends Google's ID token to Unity Authentication with
+`signInOnly`, so a Google account the game never linked makes no player, and swaps the first session at once for a
+child session that only Cloud Save and Cloud Code accept and that ends seven days after the sign-in. The child is
+kept in `sessionStorage`; Sign out drops it (Unity has no call that ends a session early). What Unity accepts from this origin was measured on 2026-11-24 (the game repo's
 `docs/evidence/task-1506/`). Two settings outside this repo carry it: the Google web client in `web-session.js`
 lists `https://conjunctiongame.com` among its authorised JavaScript origins, and Unity's Google provider names the
 same client.

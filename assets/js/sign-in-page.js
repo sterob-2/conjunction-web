@@ -1,6 +1,8 @@
 // The sign-in page: Sign in with Google, the player's arena names once signed in, and Sign out. The layout is all in
 // sign-in.html; this only shows and hides its parts and fills the list. Google's script is fetched only after the
 // player taps the page's own Sign in with Google, because it contacts Google and keeps a cookie of its own here.
+import { arenaReturnFrom } from "./arena-return.js";
+import { browserNet as net, openTabStorage } from "./browser.js";
 import {
     Failure, GOOGLE_CLIENT_ID, endsTheSession, forgetSession, keepSession, readArenaNames, refreshAccess,
     restoreSession, signInWithGoogle,
@@ -25,8 +27,9 @@ const LINES = Object.freeze({
     unexpected: "Something went wrong on this page. Reload it to try again.",
 });
 
-const net = { fetch: (url, init) => window.fetch(url, init), now: () => Date.now() };
 const storage = openTabStorage();
+// The arena results page that sent the player here, to go back to once he is signed in.
+const resultsPage = arenaReturnFrom(location.search, location.origin);
 const page = {
     line: document.getElementById("sign-in-line"),
     signedOut: document.getElementById("signed-out"),
@@ -36,6 +39,7 @@ const page = {
     names: document.getElementById("arena-names"),
     noNames: document.getElementById("no-arena-names"),
     signOut: document.getElementById("sign-out"),
+    backToResults: document.getElementById("back-to-results"),
 };
 
 let googleReady;
@@ -71,6 +75,7 @@ async function onGoogleCredential(response) {
     if (round !== signInRound) return;
     if (outcome.status !== "signedIn") return report(outcome);
     keepSession(storage, outcome.session);
+    if (resultsPage) return location.assign(resultsPage);
     return showSignedIn(outcome.session);
 }
 
@@ -89,6 +94,8 @@ async function showSignedIn(session) {
 function showSignedInPanel() {
     page.signedOut.hidden = true;
     page.signedIn.hidden = false;
+    page.backToResults.hidden = !resultsPage;
+    if (resultsPage) page.backToResults.href = resultsPage;
 }
 
 function listArenaNames(names) {
@@ -152,23 +159,6 @@ function loadGoogle() {
         throw unready;
     });
     return googleReady;
-}
-
-/** The tab's session storage; where the browser blocks it, the page's memory, so signing in still works until reload. */
-function openTabStorage() {
-    try {
-        const tab = window.sessionStorage;
-        tab.getItem("");
-        return tab;
-    } catch (blocked) {
-        console.warn("This browser blocks the session storage; the website session lives in the page only:", blocked);
-        const items = new Map();
-        return {
-            getItem: key => items.get(key) ?? null,
-            setItem: (key, value) => items.set(key, String(value)),
-            removeItem: key => items.delete(key),
-        };
-    }
 }
 
 function sayWhenItFails(step) {

@@ -2,7 +2,7 @@
 
 The website for **Conjunction**, a dark fantasy RPG for Android.
 
-No framework, no build step: plain HTML, one stylesheet and two small script modules, served by GitHub Pages.
+No framework, no build step: plain HTML, one stylesheet and a few small script modules, served by GitHub Pages.
 
 ```
 index.html            landing page
@@ -16,8 +16,13 @@ CNAME                 the custom domain, read by GitHub Pages
 assets/css/site.css
 assets/js/web-session.js    the sign-in against Unity Gaming Services, without the DOM
 assets/js/sign-in-page.js   the sign-in page's buttons and lines
+assets/js/arena-gate.js     opens the arena results pages for a website session, else shows their sign-in panel
+assets/js/arena-return.js   the way from a results page to the sign-in and back
+assets/js/browser.js        the browser's network, clock and tab storage for the two pages
 assets/img/           web-sized art, produced by the script below
 assets/img/shots/     the screenshots of the latest Closed build, written by the game repo
+assets/img/items/     the item pictures of the arena results, written by the game repo's tools/arena/export_item_icons.py
+arena-results/        the arena results pages, written by the game repo's arena job (not in the sitemap, robots-blocked)
 tests/                node --test, for the script modules
 tools/prepare_images.py
 ```

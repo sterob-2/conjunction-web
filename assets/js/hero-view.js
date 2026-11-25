@@ -1,7 +1,6 @@
 import { browserNet, openTabStorage } from "./browser.js";
 import { endsTheSession, forgetSession, keepSession, readHeroViews, refreshAccess, restoreSession } from "./web-session.js";
 
-const ATTRIBUTES = ["Strength", "Constitution", "Dexterity", "Intelligence"];
 const UPDATE = "Update the website's game data";
 const CANNOT_READ = "This hero could not be read from its cloud backup.";
 const TRY_AGAIN = "Your cloud heroes could not be read. Reload the page to try again.";
@@ -15,9 +14,25 @@ export function backupLine(stamp) {
 }
 
 export function heroIndex(hash, count) {
-    const number = /^#hero-([1-9]\d*)$/.exec(hash);
+    const number = /^#hero-([1-9]\d*)(?:\/chest)?$/.exec(hash);
     const index = number ? Number(number[1]) - 1 : -1;
     return index < count ? index : -1;
+}
+
+export function heroLinks(index) {
+    const hero = `#hero-${index + 1}`;
+    return { hero, chest: `${hero}/chest` };
+}
+
+export function pictureOf(file) {
+    return typeof file === "string" && /^[a-f0-9]{32}\.webp$/.test(file)
+        ? `/assets/img/hero-items/${file}` : "";
+}
+
+export function chestMessage({ items, hasUnreadableItems }) {
+    if (hasUnreadableItems) return items.length ? "Some items could not be read from this backup."
+        : "The chest could not be read from this backup.";
+    return items.length ? "" : "Your chest is empty.";
 }
 
 export function heroTitle(hero, index) {
@@ -72,6 +87,39 @@ function element(tag, text) {
     return node;
 }
 
+function imageAt(source, size) {
+    const picture = document.createElement("img");
+    picture.src = source;
+    picture.alt = "";
+    picture.width = size;
+    picture.height = size;
+    picture.loading = "lazy";
+    return picture;
+}
+
+function itemCard(item) {
+    const row = document.createElement("li");
+    const card = document.createElement("details");
+    const summary = document.createElement("summary");
+    const text = document.createElement("span");
+    text.append(element("strong", item.name), element("small", item.summary));
+    const picture = pictureOf(item.image);
+    if (picture) summary.append(imageAt(picture, 48));
+    summary.append(text);
+    card.append(summary);
+    const body = document.createElement("div");
+    body.className = "hero-item-body";
+    if (picture) body.append(imageAt(picture, 128));
+    if (item.lines.length) {
+        const stats = document.createElement("ul");
+        stats.append(...item.lines.map(line => element("li", line)));
+        body.append(stats);
+    }
+    card.append(body);
+    row.append(card);
+    return row;
+}
+
 function start(page, storage) {
     const { status, signIn, overview, list, details } = page;
     const logIn = () => {
@@ -104,7 +152,7 @@ function start(page, storage) {
         list.replaceChildren(...heroes.map((hero, index) => {
             const item = document.createElement("li");
             const link = element("a", heroTitle(hero, index));
-            link.href = `#hero-${index + 1}`;
+            link.href = heroLinks(index).hero;
             item.append(link);
             return item;
         }));
@@ -112,8 +160,9 @@ function start(page, storage) {
             const index = heroIndex(location.hash, heroes.length);
             overview.hidden = index >= 0;
             details.hidden = index < 0;
-            if (index >= 0) showHero(page, heroes[index], index, wheel);
-            if (focus) (index >= 0 ? page.name : overview.querySelector("h2")).focus();
+            const chest = index >= 0 && location.hash === heroLinks(index).chest && heroes[index].status === "ready";
+            if (index >= 0) showHero(page, heroes[index], index, wheel, chest);
+            if (focus) (index < 0 ? overview.querySelector("h2") : chest ? page.chestTitle : page.name).focus();
         };
         status.hidden = true;
         route(false);
@@ -132,20 +181,28 @@ function start(page, storage) {
     });
 }
 
-function showHero(page, card, index, wheel) {
+function showHero(page, card, index, wheel, chest) {
     page.name.textContent = heroTitle(card, index);
     page.backup.textContent = backupLine(card.backedUpUtc);
     page.message.hidden = card.status === "ready";
-    page.build.hidden = card.status !== "ready";
+    page.build.hidden = card.status !== "ready" || chest;
+    page.chest.hidden = !chest;
     if (card.status !== "ready") {
         page.message.textContent = card.status === "updateRequired" ? UPDATE : CANNOT_READ;
         return;
     }
     const hero = card.details;
-    definitionList(page.attributes, ATTRIBUTES.map(name => [name, hero.attributes[name.toLowerCase()]]));
-    const equipment = hero.equipment.map(item => [item.slot.replace(/([a-z])([A-Z\d])/g, "$1 $2"),
-        `${item.name} · Level ${item.level}`]);
-    definitionList(page.equipment, equipment.length ? equipment : [["Equipment", "No items equipped"]]);
+    if (chest) {
+        page.chestBack.href = heroLinks(index).hero;
+        page.chestItems.replaceChildren(...hero.chest.items.map(itemCard));
+        page.chestMessage.textContent = chestMessage(hero.chest);
+        page.chestMessage.hidden = !page.chestMessage.textContent;
+        return;
+    }
+    page.chestLink.href = heroLinks(index).chest;
+    definitionList(page.attributes, hero.attributes.rows.map(({ name, value }) => [name, value]));
+    page.equipment.replaceChildren(...hero.equipment.map(itemCard));
+    page.noEquipment.hidden = hero.equipment.length > 0;
     drawWheel(page.wheel, wheel, hero.charted);
     const charted = chartedLabels(wheel, hero.charted);
     page.charted.replaceChildren(...(charted.length ? charted : ["No nodes or skills learned yet"]).map(label => element("li", label)));
@@ -154,8 +211,14 @@ function showHero(page, card, index, wheel) {
 if (typeof document !== "undefined") {
     const fields = ["status", "sign-in", "overview", "list"];
     const page = Object.fromEntries(fields.map(field => [field === "sign-in" ? "signIn" : field, document.getElementById(`heroes-${field}`)]));
-    for (const field of ["details", "name", "backup", "message", "build", "attributes", "equipment", "wheel", "charted"]) {
+    for (const field of ["details", "name", "backup", "message", "build", "attributes", "equipment", "wheel", "charted", "chest"]) {
         page[field] = document.getElementById(`hero-${field}`);
+    }
+    for (const [property, id] of Object.entries({
+        chestLink: "chest-link", chestBack: "chest-back", chestTitle: "chest-title",
+        chestMessage: "chest-message", chestItems: "chest-items", noEquipment: "no-equipment",
+    })) {
+        page[property] = document.getElementById(`hero-${id}`);
     }
     start(page, openTabStorage());
 }

@@ -31,6 +31,7 @@
         <p id="hero-backup"></p>
         <p id="hero-message" class="note" hidden></p>
         <div id="hero-build" hidden>
+            <a id="hero-chest-link" class="btn btn--primary">Chest</a>
             <div class="hero-build">
                 <section>
                     <h3>Base attributes</h3>
@@ -38,7 +39,8 @@
                 </section>
                 <section>
                     <h3>Equipment</h3>
-                    <dl id="hero-equipment"></dl>
+                    <ul id="hero-equipment" class="hero-items"></ul>
+                    <p id="hero-no-equipment" hidden>No items equipped</p>
                 </section>
             </div>
             <section>
@@ -49,6 +51,12 @@
                 <ul id="hero-charted"></ul>
             </section>
         </div>
+        <section id="hero-chest" hidden>
+            <a id="hero-chest-back" class="backlink">&larr; Back to hero</a>
+            <h3 id="hero-chest-title" tabindex="-1">Chest</h3>
+            <p id="hero-chest-message" class="note" hidden></p>
+            <ul id="hero-chest-items" class="hero-items hero-chest-items"></ul>
+        </section>
     </article>
 </main>
 </body>

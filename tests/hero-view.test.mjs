@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { test } from "node:test";
-import { backupLine, chartedLabels, heroIndex, heroTitle } from "../assets/js/hero-view.js";
+import { backupLine, chartedLabels, chestMessage, heroIndex, heroLinks, heroTitle, pictureOf } from "../assets/js/hero-view.js";
 import { readHeroViews } from "../assets/js/web-session.js";
 
 test("Cloud Code receives the access token and no player or hero identifier", async () => {
@@ -28,6 +28,30 @@ test("only a listed hero can open, and All heroes goes back to the list", () => 
     assert.equal(heroIndex("#hero-2", 2), 1);
     for (const hash of ["#hero-3", "#hero-0", "#hero--1", "#hero-2?x=1", "#heroes", ""]) {
         assert.equal(heroIndex(hash, 2), -1, hash);
+    }
+});
+
+test("the chest route belongs to a listed hero and has a direct route back", () => {
+    const { hero, chest } = heroLinks(1);
+    assert.equal(hero, "#hero-2");
+    assert.equal(chest, "#hero-2/chest");
+    assert.equal(heroIndex(chest, 2), 1);
+    assert.equal(heroIndex(chest, 1), -1);
+    assert.equal(heroIndex("#hero-2/chest/extra", 2), -1);
+});
+
+test("unreadable chest items are distinct from an empty chest", () => {
+    assert.equal(chestMessage({ items: [] }), "Your chest is empty.");
+    assert.equal(chestMessage({ items: [{}] }), "");
+    assert.match(chestMessage({ items: [], hasUnreadableItems: true }), /could not be read/);
+    assert.match(chestMessage({ items: [{}], hasUnreadableItems: true }), /Some items/);
+});
+
+test("item pictures are local files from the hero catalogue", () => {
+    const file = "6510f833cc66c5a4cb3f6cafd529527e.webp";
+    assert.equal(pictureOf(file), `/assets/img/hero-items/${file}`);
+    for (const invalid of [null, `../${file}`, `https://example.com/${file}`, file + "?query"]) {
+        assert.equal(pictureOf(invalid), "");
     }
 });
 
@@ -60,4 +84,7 @@ test("both entry points lead to My heroes and hero details link back", async () 
     const page = await html("hero");
     assert.match(page, /href="\/sign-in.html">&larr; Your account</);
     assert.match(page, /href="#heroes">&larr; All heroes</);
+    assert.match(page, /id="hero-chest-link"[^>]*>Chest</);
+    assert.match(page, /id="hero-chest-back"[^>]*>&larr; Back to hero</);
+    assert.doesNotMatch(page, /<form\b|<input\b|<button\b/i);
 });

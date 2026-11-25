@@ -4,4 +4,17 @@
 .hero-build { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
 .hero-build section { padding: 1rem; border: 1px solid var(--gold-dim); border-radius: 0.5rem; }
 .hero-build dl { margin-bottom: 0; }
+#hero-chest-link { margin-bottom: 1rem; }
+.heroes .hero-items { display: grid; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.hero-chest-items { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); align-items: start; }
+.hero-items details { border: 1px solid var(--gold-dim); border-radius: .5rem; overflow-wrap: anywhere; }
+.hero-items summary { display: flex; align-items: center; gap: .75rem; min-height: 48px; padding: .5rem .75rem; cursor: pointer; }
+.hero-items summary::after { content: "+"; margin-left: auto; color: var(--gold); }
+.hero-items details[open] summary::after { content: "−"; }
+.hero-items summary img { flex: none; object-fit: contain; }
+.hero-items summary small { display: block; }
+.hero-item-body { padding: .5rem .75rem .75rem; border-top: 1px solid var(--gold-dim); }
+.hero-item-body img { display: block; margin: auto; max-width: 100%; object-fit: contain; }
+.hero-item-body ul { margin: .5rem 0 0; padding-left: 1.25rem; }
+#hero-chest-back { display: inline-flex; align-items: center; min-height: 48px; }
 #hero-wheel { display: block; width: min(100%, 43rem); height: auto; margin: 1rem auto; background: #10121c; border-radius: 50%; }

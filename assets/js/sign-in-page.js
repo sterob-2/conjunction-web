@@ -1,7 +1,7 @@
 // The sign-in page: Sign in with Google, the player's arena names once signed in, and Sign out. The layout is all in
 // sign-in.html; this only shows and hides its parts and fills the list. Google's script is fetched only after the
 // player taps the page's own Sign in with Google, because it contacts Google and keeps a cookie of its own here.
-import { arenaReturnFrom } from "./arena-return.js";
+import { ARENA_RESULTS_PATH, arenaReturnFrom } from "./arena-return.js";
 import { browserNet as net, openTabStorage } from "./browser.js";
 import {
     Failure, GOOGLE_CLIENT_ID, endsTheSession, forgetSession, keepSession, readArenaNames, refreshAccess,
@@ -25,6 +25,8 @@ const LINES = Object.freeze({
     chooseAccount: "Now choose your Google account with Google's button.",
     namesUnread: "You are signed in, but your arena names could not be read just now. Reload the page to try again.",
     unexpected: "Something went wrong on this page. Reload it to try again.",
+    seeResults: "See the arena results",
+    backToResults: "Back to the arena results",
 });
 
 const storage = openTabStorage();
@@ -94,8 +96,8 @@ async function showSignedIn(session) {
 function showSignedInPanel() {
     page.signedOut.hidden = true;
     page.signedIn.hidden = false;
-    page.backToResults.hidden = !resultsPage;
-    if (resultsPage) page.backToResults.href = resultsPage;
+    page.backToResults.href = resultsPage ?? ARENA_RESULTS_PATH;
+    page.backToResults.textContent = resultsPage ? LINES.backToResults : LINES.seeResults;
 }
 
 function listArenaNames(names) {

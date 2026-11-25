@@ -1,7 +1,7 @@
 // The way from an arena results page to the sign-in and back. The sign-in page follows only a path on this site
 // under the results, so a link that names somewhere else can never send a player there after he signs in.
 
-const ARENA_RESULTS_PATH = "/arena-results/";
+export const ARENA_RESULTS_PATH = "/arena-results/";
 const SIGN_IN_PATH = "/sign-in.html";
 const RETURN_PARAMETER = "next";
 

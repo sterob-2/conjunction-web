@@ -14,8 +14,10 @@ export function accountLinkText(keptSession) {
 }
 
 function nameTheAccountLinks() {
-    const text = accountLinkText(restoreSession(openTabStorage(), browserNet.now()));
+    const kept = restoreSession(openTabStorage(), browserNet.now());
+    const text = accountLinkText(kept);
     for (const link of document.querySelectorAll(ACCOUNT_LINK_SELECTOR)) link.textContent = text;
+    for (const link of document.querySelectorAll("[data-heroes-link]")) link.hidden = !kept;
 }
 
-if (typeof document !== "undefined") nameTheAccountLinks();
+if (typeof document !== "undefined") window.addEventListener("pageshow", nameTheAccountLinks);

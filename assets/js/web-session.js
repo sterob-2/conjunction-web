@@ -7,6 +7,7 @@ const PROJECT_ID = "c06069c5-7c65-4890-9e21-73686c2bd25b";
 const ENVIRONMENT = "production";
 const AUTHENTICATION = "https://player-auth.services.api.unity.com/v1/authentication";
 const PLAYER_DATA = `https://cloud-save.services.api.unity.com/v1/data/projects/${PROJECT_ID}/players`;
+const HERO_VIEW = `https://cloud-code.services.api.unity.com/v1/projects/${PROJECT_ID}/modules/HeroView/List`;
 const GOOGLE_PROVIDER = "google.com";
 
 // Unity's answer when the project has no Google provider; every other "not found" of a sign-in-only call is the
@@ -112,6 +113,17 @@ export function arenaNamesIn(items) {
         const named = entry && typeof entry.arena_name === "string" && entry.arena_name.trim().length > 0;
         return named ? [{ arenaName: entry.arena_name.trim(), slot, track: track.label }] : [];
     }));
+}
+
+/** Reads the signed-in player's projected heroes using the Cloud Code audience. */
+export async function readHeroViews(session, net) {
+    const read = await call(net, "POST", HERO_VIEW, { access: session.accessToken, body: { params: {} } });
+    if (!read.ok) return { ok: false, failure: failureOf(read) };
+    const view = typeof read.body.output === "string" ? bodyOf(read.body.output) : read.body.output;
+    if (!Array.isArray(view?.heroes) || !Array.isArray(view.wheel?.nodes) || !Array.isArray(view.wheel?.edges)) {
+        return { ok: false, failure: Failure.REFUSED };
+    }
+    return { ok: true, view };
 }
 
 /** Keeps the session in the tab's storage without its access token, which every page load asks for anew. */

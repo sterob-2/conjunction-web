@@ -1,0 +1,7 @@
+.heroes [hidden] { display: none; }
+.heroes .hero-list { list-style: none; padding-left: 0; }
+.hero-list a { display: inline-flex; align-items: center; min-height: 48px; }
+.hero-build { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.hero-build section { padding: 1rem; border: 1px solid var(--gold-dim); border-radius: 0.5rem; }
+.hero-build dl { margin-bottom: 0; }
+#hero-wheel { display: block; width: min(100%, 43rem); height: auto; margin: 1rem auto; background: #10121c; border-radius: 50%; }

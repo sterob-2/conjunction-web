@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://player-auth.services.api.unity.com https://cloud-code.services.api.unity.com; object-src 'none'; base-uri 'none'">
+<title>My heroes - Conjunction</title>
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/hero-view.css">
+<script type="module" src="/assets/js/hero-view.js"></script>
+</head>
+<body>
+<main class="wrap legal heroes">
+    <nav aria-label="Account">
+        <a class="backlink" href="/sign-in.html">&larr; Your account</a>
+    </nav>
+    <h1>My heroes</h1>
+    <p id="heroes-status" class="note" role="status">Reading your cloud heroes…</p>
+    <a id="heroes-sign-in" class="btn btn--primary" href="/sign-in.html" hidden>Sign in with Google</a>
+
+    <section id="heroes-overview" hidden>
+        <h2 tabindex="-1">Cloud heroes</h2>
+        <ul id="heroes-list" class="hero-list"></ul>
+    </section>
+
+    <article id="hero-details" hidden>
+        <a class="backlink" href="#heroes">&larr; All heroes</a>
+        <h2 id="hero-name" tabindex="-1"></h2>
+        <p id="hero-backup"></p>
+        <p id="hero-message" class="note" hidden></p>
+        <div id="hero-build" hidden>
+            <div class="hero-build">
+                <section>
+                    <h3>Base attributes</h3>
+                    <dl id="hero-attributes"></dl>
+                </section>
+                <section>
+                    <h3>Equipment</h3>
+                    <dl id="hero-equipment"></dl>
+                </section>
+            </div>
+            <section>
+                <h3>Skill wheel</h3>
+                <canvas id="hero-wheel" width="1000" height="1000" role="img"
+                    aria-label="Skill wheel overview. Learned and equipment-granted nodes are listed below."></canvas>
+                <h4>Learned nodes and skills</h4>
+                <ul id="hero-charted"></ul>
+            </section>
+        </div>
+    </article>
+</main>
+</body>
+</html>

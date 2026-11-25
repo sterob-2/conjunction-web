@@ -1,0 +1,333 @@
+/* The arena results pages (TASK-1502): the stone hall of Z'Tirom's screen, on the site's own palette and fonts
+   (assets/css/site.css). The painted plates are the game's sprites, sliced by assets/css/arena-plates.css, which
+   tools/prepare_images.py writes from their .meta borders; the item pictures come from tools/arena/export_item_icons.py.
+   Phones read one column; wide screens get the table's ladder and the chosen hero side by side, and the final's
+   brackets in full. */
+
+/* The place numerals from DarkFantasyColors. The arena export supplies the gear palette. */
+:root {
+    --place-silver: #c9c9c9;
+    --place-bronze: #c08a52;
+    --stone-veil: color-mix(in srgb, var(--card) 92%, transparent);
+    --slot-veil: color-mix(in srgb, var(--bg-deep) 88%, transparent);
+}
+
+body.arena {
+    background: var(--void) url(/assets/img/arena/hall.webp) center top / cover fixed no-repeat;
+}
+
+body.arena::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--void) 55%, transparent), color-mix(in srgb, var(--void) 86%, transparent) 40%, color-mix(in srgb, var(--void) 94%, transparent));
+}
+
+.arena-wrap { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: var(--gutter); }
+
+/* -- Head ----------------------------------------------------------------- */
+
+.arena-nav { display: flex; flex-wrap: wrap; gap: 0 1.4rem; padding-top: 0.6rem; }
+.arena-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-mid); text-decoration: none; font-size: 0.95rem; }
+.arena-nav a:hover { color: var(--gold); }
+
+.arena-head { padding-block: 1.2rem 0.4rem; text-align: center; }
+.arena-head .plate-plaque { max-width: 760px; margin-inline: auto; padding: 0.3rem 0.6rem; }
+.arena-head__kicker { margin: 0; color: var(--ink-mid); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.arena-head h1 { font-size: clamp(1.9rem, 6vw, 3rem); color: var(--gold); letter-spacing: 0.04em; }
+.arena-head__line { margin: 0.2rem 0 0; color: var(--ink); font-family: var(--serif); font-size: clamp(1.05rem, 3vw, 1.3rem); }
+
+.arena-note { max-width: var(--measure); margin: 0.8rem auto 0; color: var(--ink-mid); font-size: 0.92rem; text-align: center; }
+.arena-note a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* -- Section heads: the red band of the game's bracket titles ----------------- */
+
+.arena-section { padding-block: clamp(1.6rem, 4vw, 2.6rem) 0; }
+
+.section-title {
+    max-width: 760px;
+    margin: 0 auto 1.4rem;
+    text-align: center;
+}
+.section-title h2 { font-size: clamp(1.3rem, 3.6vw, 1.7rem); color: var(--ink); letter-spacing: 0.05em; padding-block: 0.1rem; }
+
+/* -- The final: the champion's plate and the brackets ------------------------- */
+
+.champion {
+    position: relative;
+    max-width: 720px;
+    aspect-ratio: 1516 / 499;
+    margin: 0 auto 1.6rem;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: 9% 18% 4%;
+    background: url(/assets/img/arena/champion-plate.webp) center / 100% 100% no-repeat;
+}
+.champion__name { font-family: var(--serif); font-size: clamp(1.3rem, 4.4vw, 2.2rem); color: var(--ink); line-height: 1.1; }
+.champion__line { margin: 0.25rem 0 0; color: var(--ink-mid); font-size: clamp(0.78rem, 2.2vw, 0.95rem); line-height: 1.35; }
+.champion__line + .champion__line { margin-top: 0; }
+
+.bracket-group { margin-top: 1.6rem; }
+.bracket-group h3 { font-size: 1.15rem; color: var(--ink); text-align: center; margin-bottom: 0.9rem; }
+
+.bracket { overflow-x: auto; padding-bottom: 0.6rem; }
+.bracket { --bracket-gap: 1.6rem; --bracket-reach: calc(var(--bracket-gap) / 2); }
+.bracket__rounds { display: flex; gap: var(--bracket-gap); width: max-content; margin-inline: auto; }
+.bracket__round { display: flex; flex-direction: column; justify-content: space-around; gap: 0.9rem; min-width: 168px; }
+
+.bracket__pair { position: relative; display: flex; flex-direction: column; gap: 0.9rem; }
+.bracket__pair::after {
+    content: "";
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    right: calc(-1 * var(--bracket-reach));
+    width: var(--bracket-reach);
+    border: 1px solid var(--gold-dim);
+    border-left: 0;
+}
+.bracket__round:last-child .bracket__pair::after { display: none; }
+
+.match {
+    position: relative;
+    padding: 0.45rem 0.7rem;
+    background: var(--stone-veil);
+    border: 1px solid var(--border-bright);
+    border-radius: 2px;
+}
+.match--won-by-a-seed { border-color: var(--gold-dim); }
+.bracket__round:not(:first-child) .match::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(-1 * var(--bracket-reach));
+    width: var(--bracket-reach);
+    border-top: 1px solid var(--gold-dim);
+}
+.match__winner { margin: 0; color: var(--gold); font-weight: 700; font-size: 0.95rem; }
+.match__beaten { margin: 0; color: var(--ink-mid); font-size: 0.82rem; line-height: 1.35; }
+
+/* -- The table: the podium, the ladder and the chosen hero ------------------- */
+
+.table__body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.6rem; }
+
+.podium {
+    list-style: none;
+    margin: 0 0 1.2rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+    gap: 0.6rem;
+}
+.podium__place--1 { order: 2; }
+.podium__place--2 { order: 1; }
+.podium__place--3 { order: 3; }
+
+.podium a {
+    display: grid;
+    justify-items: center;
+    min-height: 44px;
+    padding: 0.6rem 0.3rem 0.8rem;
+    color: var(--ink);
+    text-decoration: none;
+    text-align: center;
+}
+.podium a:hover .podium__name { color: var(--gold); }
+
+.laurel {
+    display: grid;
+    place-items: center;
+    width: clamp(64px, 18vw, 104px);
+    aspect-ratio: 403 / 336;
+    background: center / contain no-repeat;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 5vw, 2.3rem);
+    line-height: 1;
+}
+.laurel--gold { background-image: url(/assets/img/arena/laurel-gold.webp); color: var(--gold); }
+.laurel--silver { background-image: url(/assets/img/arena/laurel-silver.webp); color: var(--place-silver); }
+.laurel--bronze { background-image: url(/assets/img/arena/laurel-bronze.webp); color: var(--place-bronze); }
+.podium__place--1 .laurel { width: clamp(82px, 23vw, 132px); }
+
+.podium__name { font-family: var(--serif); font-size: clamp(1.05rem, 3.4vw, 1.4rem); line-height: 1.15; overflow-wrap: anywhere; }
+.podium__detail { color: var(--ink-mid); font-size: 0.8rem; }
+.podium__points { color: var(--gold); font-weight: 700; font-size: 1.05rem; }
+
+.ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+
+.row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.8rem;
+    min-height: 44px;
+    padding: 0.2rem 0.3rem 0.2rem 0.7rem;
+    color: var(--ink);
+    text-decoration: none;
+}
+.row:hover .row__name, .row:focus-visible .row__name { color: var(--gold); }
+.row__place {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -86px;
+    width: 86px;
+    display: grid;
+    place-items: center;
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--ink);
+}
+.row__name { font-family: var(--serif); font-size: 1.25rem; line-height: 1.1; overflow-wrap: anywhere; }
+.row__detail { display: block; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-mid); }
+.row__points { font-weight: 700; font-size: 1.2rem; color: var(--ink); }
+
+/* -- The hero as handed in --------------------------------------------------- */
+
+.heroes > article { display: none; padding: 0.6rem 0.4rem 0.8rem; }
+.heroes > article:target { display: block; }
+.heroes > article:target { scroll-margin-top: 1rem; }
+
+.hero__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.4rem 1rem; }
+.hero__head h3 { font-size: clamp(1.5rem, 4vw, 2rem); color: var(--gold); }
+.hero__facts { margin: 0; color: var(--ink-mid); }
+.entry > section { padding-block: 0; }
+.entry h4 { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin: 1.2rem 0 0.6rem; }
+
+.gear {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(3px, 1vw, 8px);
+    max-width: 26rem;
+    margin-inline: auto;
+}
+.gear__rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: inherit; }
+.gear__cell {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 44px;
+    padding: 12%;
+    border: 0;
+    background: var(--slot-veil);
+    box-shadow: inset 0 0 0 5px var(--rarity, var(--border-mid));
+}
+.gear > .gear__cell, .gear__rings { aspect-ratio: 1; }
+.gear__cell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 6px solid transparent;
+    border-image: var(--slot-frame) var(--slot-frame-slice) stretch;
+    pointer-events: none;
+}
+button.gear__cell { cursor: pointer; }
+.gear__cell[aria-expanded="true"]::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 2px solid var(--gear-selection);
+    pointer-events: none;
+}
+.gear__cell:focus-visible { outline: 3px solid var(--gear-selection); outline-offset: 1px; z-index: 1; }
+.gear__cell img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.gear__cell .gear__silhouette { filter: sepia(1) saturate(2.2) brightness(2.6); opacity: 0.65; }
+.gear__level {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    padding-inline: 0.2rem;
+    border-radius: 2px;
+    color: var(--ink);
+    background: var(--bg-deep);
+    font: 0.75rem var(--sans);
+}
+.item {
+    max-width: 26rem;
+    margin: 0.65rem auto;
+    padding: 0.75rem;
+    border: 1px solid var(--border-mid);
+    background: var(--slot-veil);
+}
+.item__name { margin: 0; font-family: var(--serif); font-size: 1.25rem; color: var(--rarity-ink, var(--gold)); }
+.item__kind { margin: 0.1rem 0 0.35rem; color: var(--ink-mid); font-size: 0.85rem; }
+.item ul { list-style: none; margin: 0; padding: 0; font-size: 0.94rem; color: var(--ink); }
+.item li + li { margin-top: 0.2rem; }
+
+.wheel-picture {
+    display: block;
+    width: 100%;
+    max-width: 34rem;
+    height: auto;
+    margin-inline: auto;
+    border: 1px solid var(--border-mid);
+}
+.skills { list-style: none; margin: 0.65rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skills button {
+    min-height: 44px;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border-mid);
+    border-radius: 2px;
+    background: var(--slot-veil);
+    color: var(--ink);
+    font: inherit;
+    text-align: start;
+    cursor: pointer;
+}
+.skills .skill--selected { border-color: var(--gold-dim); color: var(--gold); }
+.skills button[aria-expanded="true"] { border-color: var(--gold); }
+
+.entry details { margin-top: 0.8rem; }
+.entry summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; color: var(--ink); }
+.entry details ul { columns: 2 220px; margin: 0; padding-left: 1.1rem; color: var(--ink-mid); font-size: 0.88rem; }
+
+@media (max-width: 480px) {
+    .heroes { margin-inline: -0.5rem; }
+    .heroes > article { border-width: 8px; border-image-width: 8px; padding-inline: 0; }
+    .hero__head, .entry > section > h4, .entry details, .entry .backlink-table { margin-inline: 0.4rem; }
+}
+
+.backlink-table { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.6rem; color: var(--ink-mid); font-size: 0.92rem; }
+
+/* -- The week index ---------------------------------------------------------- */
+
+.weeks { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 0.5rem; max-width: 760px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.weeks a { display: flex; align-items: center; justify-content: center; min-height: 56px; font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+.weeks a:hover { color: var(--gold); }
+
+/* -- The sign-in in front of the results (assets/js/arena-gate.js) ----------- */
+
+.arena-gate { padding-block: clamp(1.6rem, 4vw, 2.6rem) 0; }
+.arena-gate[hidden] { display: none; }
+.arena-gate__panel { max-width: 640px; margin-inline: auto; padding: 0.8rem 0.6rem 1rem; text-align: center; }
+.arena-gate__panel h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); color: var(--gold); margin-bottom: 0.6rem; }
+.arena-gate__panel p { margin: 0 auto 1rem; max-width: var(--measure); color: var(--ink-mid); }
+.arena-gate__line { color: var(--ink); }
+.arena-gate__how { font-size: 0.9rem; }
+.arena-gate .btn { margin-bottom: 1rem; }
+
+.arena-foot { margin-top: 3rem; }
+
+/* -- Phones: a smaller picture leaves the item's lines their width ----------- */
+
+@media (max-width: 599px) {
+}
+
+/* -- Wide screens: use the room ---------------------------------------------- */
+
+@media (min-width: 1000px) {
+    .table__body { grid-template-columns: minmax(380px, 5fr) minmax(0, 7fr); align-items: start; }
+    .heroes:not(:has(article:target)) > article:first-child { display: block; }
+    .podium { margin-bottom: 1.6rem; }
+}
+
+@media (min-width: 1300px) {
+    .final__brackets { display: grid; grid-template-columns: auto auto; justify-content: space-evenly; gap: 2rem; align-items: start; }
+    .final__brackets .bracket-group { margin-top: 0; }
+}

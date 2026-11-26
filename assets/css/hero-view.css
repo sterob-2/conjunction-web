@@ -1,7 +1,7 @@
 .heroes [hidden] { display: none; }
 .heroes .hero-list { list-style: none; padding-left: 0; }
 .hero-list a { display: inline-flex; align-items: center; min-height: 48px; }
-.hero-build { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.hero-build { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 23rem), 1fr)); }
 .hero-build section { padding: 1rem; border: 1px solid var(--gold-dim); border-radius: 0.5rem; }
 .hero-build dl { margin-bottom: 0; }
 #hero-chest-link { margin-bottom: 1rem; }
@@ -11,10 +11,8 @@
 .hero-items summary { display: flex; align-items: center; gap: .75rem; min-height: 48px; padding: .5rem .75rem; cursor: pointer; }
 .hero-items summary::after { content: "+"; margin-left: auto; color: var(--gold); }
 .hero-items details[open] summary::after { content: "−"; }
-.hero-items summary img { flex: none; object-fit: contain; }
-.hero-items summary small { display: block; }
-.hero-item-body { padding: .5rem .75rem .75rem; border-top: 1px solid var(--gold-dim); }
-.hero-item-body img { display: block; margin: auto; max-width: 100%; object-fit: contain; }
-.hero-item-body ul { margin: .5rem 0 0; padding-left: 1.25rem; }
+.hero-items summary img { flex: none; width: 48px; height: 48px; object-fit: contain; }
+.hero-items summary span { color: var(--rarity-ink, var(--ink)); }
+.hero-items summary small { display: block; color: var(--ink-mid); }
+.hero-items .item { margin: 0; }
 #hero-chest-back { display: inline-flex; align-items: center; min-height: 48px; }
-#hero-wheel { display: block; width: min(100%, 43rem); height: auto; margin: 1rem auto; background: #10121c; border-radius: 50%; }

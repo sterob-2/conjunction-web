@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import { test } from "node:test";
-import { backupLine, chartedLabels, chestMessage, heroIndex, heroLinks, heroTitle, pictureOf } from "../assets/js/hero-view.js";
+import { backupLine, chestMessage, heroIndex, heroLinks, heroTitle } from "../assets/js/hero-view.js";
+import { chartedLabels, chestItem, loadWheel, pictureOf, renderPaperdoll } from "../assets/js/paperdoll.js";
 import { readHeroViews } from "../assets/js/web-session.js";
 
 test("Cloud Code receives the access token and no player or hero identifier", async () => {
-    const view = { heroes: [], wheel: { nodes: [], edges: [] } };
+    const view = { heroes: [], wheelVersion: "1".repeat(64) };
     const net = {
         fetch: async (url, request) => {
             assert.match(url, /^https:\/\/cloud-code\.services\.api\.unity\.com\/v1\/projects\/[^/]+\/modules\/HeroView\/List$/);
@@ -21,6 +22,29 @@ test("Cloud Code receives the access token and no player or hero identifier", as
 test("a malformed projection stays closed", async () => {
     const net = { fetch: async () => new Response(JSON.stringify({ output: { hero: {} } })) };
     assert.equal((await readHeroViews({ accessToken: "child-access" }, net)).ok, false);
+});
+
+test("the versioned wheel is fetched once for concurrent views and subsequent routes", async () => {
+    const version = "2".repeat(64);
+    const layout = { nodes: [], edges: [], backdrop: `backdrop-${"a".repeat(64)}.webp` };
+    let reads = 0;
+    const request = async (url, options) => {
+        reads++;
+        assert.equal(url, `/assets/wheel/layout-${version}.json`);
+        assert.deepEqual(options, { cache: "force-cache" });
+        return Response.json(layout);
+    };
+    const opening = loadWheel(version, request);
+    assert.strictEqual(loadWheel(version, request), opening);
+    assert.deepEqual(await opening, layout);
+    assert.deepEqual(await loadWheel(version, request), layout);
+    assert.equal(reads, 1);
+});
+
+test("an absent version does not fall back to another wheel", async () => {
+    const version = "3".repeat(64);
+    await assert.rejects(loadWheel(version, async () => new Response("", { status: 404 })), /Update the website/);
+    await assert.rejects(loadWheel("../other", () => assert.fail("invalid version issued a request")), /Update the website/);
 });
 
 test("only a listed hero can open, and All heroes goes back to the list", () => {
@@ -53,6 +77,58 @@ test("item pictures are local files from the hero catalogue", () => {
     for (const invalid of [null, `../${file}`, `https://example.com/${file}`, file + "?query"]) {
         assert.equal(pictureOf(invalid), "");
     }
+});
+
+test("equipment and chest open the same item card", () => {
+    const markup = node => [node.tag, node.className, node.textContent, node.children.map(markup)];
+    const previous = globalThis.document;
+    globalThis.document = { createElement: tag => ({
+        tag, children: [], attributes: {},
+        append(...children) { this.children.push(...children); },
+        replaceChildren(...children) { this.children = children; },
+        removeAttribute(name) { delete this.attributes[name]; },
+        setAttribute(name, value) { this.attributes[name] = value; },
+        addEventListener(_, handler) { this.click = handler; },
+    }) };
+    try {
+        const equipment = document.createElement("section");
+        const item = { name: "<Galeshard>", summary: "Ring · Legendary · Lvl 28", slotIndex: 8,
+            lines: ["Defense Rating: 94"], level: 28, rarity: 5, slot: "Ring" };
+        renderPaperdoll(equipment, [item]);
+        const [grid, card] = equipment.children;
+        const [rings] = grid.children;
+        const [button, emptyRing] = rings.children;
+        assert.equal(grid.children.length, 9);
+        assert.equal(emptyRing.attributes["aria-label"], "Ring slot empty");
+        assert.equal(card.hidden, true);
+        assert.equal(button.attributes["aria-controls"], card.id);
+        button.click();
+        assert.equal(card.hidden, false);
+        assert.equal(button.attributes["aria-expanded"], "true");
+        const chest = chestItem(item);
+        assert.deepEqual(markup(card), markup(chest.children[0].children[1]));
+        assert.equal(card.children[0].textContent, "<Galeshard>");
+        button.click();
+        assert.equal(card.hidden, true);
+    } finally {
+        if (previous === undefined) delete globalThis.document;
+        else globalThis.document = previous;
+    }
+});
+
+test("only the shared module creates item-card markup anywhere on the site", async () => {
+    const root = new URL("../", import.meta.url);
+    const paths = await readdir(root, { recursive: true });
+    const markers = /gear__cell|item__name|item--rarity-|hero-item-body/;
+    const files = paths.map(path => path.replaceAll("\\", "/")).filter(path =>
+        !path.startsWith("tests/") && !path.startsWith("temp/") && !path.startsWith(".git/")
+        && /\.(?:html|js|mjs)$/.test(path));
+    const owners = [];
+    for (const path of files) {
+        const source = await readFile(new URL(path, root), "utf8");
+        if (markers.test(source)) owners.push(path);
+    }
+    assert.deepEqual(owners, ["assets/js/paperdoll.js"]);
 });
 
 test("newer heroes have a generic title and keep their cloud backup date", () => {

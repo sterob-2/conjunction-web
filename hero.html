@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://player-auth.services.api.unity.com https://cloud-code.services.api.unity.com; object-src 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://player-auth.services.api.unity.com https://cloud-code.services.api.unity.com; object-src 'none'; base-uri 'none'">
 <title>My heroes - Conjunction</title>
 <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="stylesheet" href="/assets/css/hero-view.css">
+<link rel="stylesheet" href="/assets/css/paperdoll.css">
+<link rel="stylesheet" href="/assets/img/paperdoll/gear.css">
 <script type="module" src="/assets/js/hero-view.js"></script>
 </head>
 <body>
@@ -39,14 +41,12 @@
                 </section>
                 <section>
                     <h3>Equipment</h3>
-                    <ul id="hero-equipment" class="hero-items"></ul>
-                    <p id="hero-no-equipment" hidden>No items equipped</p>
+                    <div id="hero-equipment"></div>
                 </section>
             </div>
             <section>
                 <h3>Skill wheel</h3>
-                <canvas id="hero-wheel" width="1000" height="1000" role="img"
-                    aria-label="Skill wheel overview. Learned and equipment-granted nodes are listed below."></canvas>
+                <div id="hero-wheel"></div>
                 <h4>Learned nodes and skills</h4>
                 <ul id="hero-charted"></ul>
             </section>

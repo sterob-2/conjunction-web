@@ -44,9 +44,9 @@
         "seed": 7
       },
       {
-        "arena_name": "Mara",
-        "level": 26,
-        "row_id": "ea81e1dc9c20fba2",
+        "arena_name": "Example L24 · spear · Act I",
+        "level": 24,
+        "row_id": "fbb5710a54db4574",
         "seed": 8
       }
     ],
@@ -251,11 +251,517 @@
       }
     ]
   },
-  "revision": 2,
+  "revision": 3,
   "rows": [
     {
       "arena_name": "Atlas",
       "hero": {
+        "cards": [
+          {
+            "image": "/arena-results/closed/art/hunting-axe.webp",
+            "itemId": "AXE_04",
+            "level": 48,
+            "lines": [
+              "Damage: 15 - 27",
+              "Attack Speed: 1.05",
+              "Critical: 8%",
+              "81% Physical Damage",
+              "10-21 Poison Damage",
+              "20% Attack Speed",
+              "10-21 Dark Damage",
+              "Imbued: Soulreaver · IAS: Death experience (1)"
+            ],
+            "name": "Soulreaver",
+            "rarity": 5,
+            "slot": "Weapon",
+            "slotIndex": 2,
+            "summary": "Weapon · Legendary · Lvl 48"
+          },
+          {
+            "image": "/arena-results/closed/art/cloth-armor.webp",
+            "itemId": "LEG_ARMOR_LIGHT_01",
+            "level": 28,
+            "lines": [
+              "Defense Rating: 112",
+              "4.5 Light Radius",
+              "13% Elemental Resistances",
+              "8 Absorb Damage",
+              "8% Chance to Dodge",
+              "Aspect of the salamander (1)"
+            ],
+            "name": "Emberplate",
+            "rarity": 5,
+            "slot": "Armor",
+            "slotIndex": 4,
+            "summary": "Armor · Legendary · Lvl 28"
+          },
+          {
+            "image": "/arena-results/closed/art/dawnstar-helmet.webp",
+            "itemId": "HELMET_03",
+            "level": 37,
+            "lines": [
+              "Defense Rating: 92",
+              "Gold Find: +17%",
+              "24% Fire Resistance",
+              "68% Physical Damage",
+              "14% Mythical Resistances",
+              "0.9 seconds Reduce Cooldown",
+              "Imbued: Nine Heavens Visor · IAS: Fire mastery (1)"
+            ],
+            "name": "Nine Heavens Visor",
+            "rarity": 5,
+            "slot": "Helm",
+            "slotIndex": 0,
+            "summary": "Helm · Legendary · Lvl 37"
+          },
+          {
+            "image": "/arena-results/closed/art/diamond-ring.webp",
+            "itemId": "RING_14",
+            "level": 28,
+            "lines": [
+              "Defense Rating: 94",
+              "3-7 Physical Damage",
+              "3-7 Poison Damage",
+              "6% Attack Speed",
+              "12% All Resistances",
+              "Imbued: Quakeband · Shockwave (1)"
+            ],
+            "name": "Quakeband",
+            "rarity": 5,
+            "slot": "Ring",
+            "slotIndex": 8,
+            "summary": "Ring · Legendary · Lvl 28"
+          },
+          {
+            "image": "/arena-results/closed/art/scorched-ring.webp",
+            "itemId": "RING_15",
+            "level": 23,
+            "lines": [
+              "Light Radius: +6",
+              "23 Hitpoints",
+              "10% Elemental Resistances",
+              "3-6 Cold Damage",
+              "2.5% Critical Hit Chance"
+            ],
+            "name": "Scorched Ring",
+            "rarity": 4,
+            "slot": "Ring",
+            "slotIndex": 9,
+            "summary": "Ring · Elf · Lvl 23"
+          },
+          {
+            "image": "/arena-results/closed/art/stone-amulet.webp",
+            "itemId": "AMULET_06",
+            "level": 37,
+            "lines": [
+              "Defense Rating: +27%",
+              "114 Attack Rating",
+              "4-9 Physical Damage",
+              "4-9 Fire Damage",
+              "18% Pierce Cold Resistance",
+              "Imbued: Eclipse Spirit Token · Aspect of the hydra (1)"
+            ],
+            "name": "Eclipse Spirit Token",
+            "rarity": 5,
+            "slot": "Amulet",
+            "slotIndex": 1,
+            "summary": "Amulet · Legendary · Lvl 37"
+          },
+          {
+            "image": "/arena-results/closed/art/infusion-boots.webp",
+            "itemId": "BOOTS_04",
+            "level": 48,
+            "lines": [
+              "Defense Rating: 83",
+              "Block Chance: 3%",
+              "58% Magic Find",
+              "15% Elemental Resistances",
+              "14% Mythical Resistances",
+              "15% All Resistances"
+            ],
+            "name": "Infusion Boots",
+            "rarity": 4,
+            "slot": "Boots",
+            "slotIndex": 7,
+            "summary": "Boots · Elf · Lvl 48"
+          },
+          {
+            "image": "/arena-results/closed/art/chain-belt.webp",
+            "itemId": "LEG_BELT_01",
+            "level": 25,
+            "lines": [
+              "Defense Rating: 11",
+              "8 Strength",
+              "13% Light Resistance",
+              "15% Mythical Resistances",
+              "15% All Resistances",
+              "Dago's touch (1)"
+            ],
+            "name": "Fatesash",
+            "rarity": 5,
+            "slot": "Belt",
+            "slotIndex": 5,
+            "summary": "Belt · Legendary · Lvl 25"
+          },
+          {
+            "image": "/arena-results/closed/art/war-gloves.webp",
+            "itemId": "GLOVES_04",
+            "level": 48,
+            "lines": [
+              "Defense Rating: 97",
+              "Fire Resistance: +8%",
+              "162 Attack Rating",
+              "24% Critical Hit Damage",
+              "5-11 Cold Damage",
+              "18% All Resistances"
+            ],
+            "name": "War Gloves",
+            "rarity": 4,
+            "slot": "Gloves",
+            "slotIndex": 6,
+            "summary": "Gloves · Elf · Lvl 48"
+          },
+          {
+            "image": "/arena-results/closed/art/loyal-shield.webp",
+            "itemId": "LEG_SHIELD_02",
+            "level": 22,
+            "lines": [
+              "Defense Rating: 116",
+              "Light Radius: +4",
+              "Block Chance: 20%",
+              "39 Hitpoints",
+              "7 Regenerate",
+              "7 Absorb Damage",
+              "8% Reduce Physical Damage",
+              "IAS: Wall up (1)"
+            ],
+            "name": "Warward of Ares",
+            "rarity": 5,
+            "slot": "Off-hand",
+            "slotIndex": 3,
+            "summary": "Off-hand · Legendary · Lvl 22"
+          }
+        ],
+        "charted": [
+          {
+            "granted": false,
+            "id": "GREAT_AXE_I",
+            "learned": true,
+            "level": 6
+          },
+          {
+            "granted": false,
+            "id": "GREAT_AXE_J",
+            "learned": true,
+            "level": 20
+          },
+          {
+            "granted": false,
+            "id": "GREAT_AXE_j",
+            "learned": true,
+            "level": 20
+          },
+          {
+            "granted": true,
+            "id": "GREAT_SWORD_r",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "GREAT_AXE_L",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "GREAT_AXE_N",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": true,
+            "id": "SPEAR_ab",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "GREAT_AXE_TI",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": true,
+            "id": "GREAT_AXE_n",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": true,
+            "id": "GREAT_AXE_p",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "GREAT_AXE_P",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "GREAT_SWORD_W",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": true,
+            "id": "GREAT_SWORD_v",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": true,
+            "id": "SWORD_R8D",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": true,
+            "id": "GREAT_AXE_R8K",
+            "learned": false,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "GREAT_SWORD_R8P",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "GREAT_SWORD_R8j",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "Passive_3",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_4",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_5",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_21",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_22",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_23",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_45",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_46",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_47",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_81",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_82",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_83",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_129",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_130",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_131",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_189",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_190",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_191",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_303",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_304",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_305",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_469",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_470",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_471",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_472",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_524",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_525",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_526",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_527",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_582",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_583",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_584",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_585",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_646",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_647",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_648",
+            "learned": true,
+            "level": 0
+          }
+        ],
         "equipment": [
           {
             "enchantments": [
@@ -285,20 +791,9 @@
             "imbuedLegendaryId": "LEG_GREAT_AXE_04",
             "itemId": "AXE_04",
             "itemLevel": 48,
-            "lines": [
-              "Damage: 15 - 27",
-              "Attack Speed: 1.05",
-              "Critical: 8%",
-              "81% Physical Damage",
-              "10-21 Poison Damage",
-              "20% Attack Speed",
-              "10-21 Dark Damage"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [],
-            "slot": 2,
-            "slotName": "Weapon"
+            "slot": 2
           },
           {
             "enchantments": [
@@ -328,23 +823,14 @@
             "imbuedLegendaryId": "",
             "itemId": "LEG_ARMOR_LIGHT_01",
             "itemLevel": 28,
-            "lines": [
-              "Defense Rating: 112",
-              "4.5 Light Radius",
-              "13% Elemental Resistances",
-              "8 Absorb Damage",
-              "8% Chance to Dodge"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.8
               }
             ],
-            "slot": 4,
-            "slotName": "Armor"
+            "slot": 4
           },
           {
             "enchantments": [
@@ -375,16 +861,7 @@
             "imbuedLegendaryId": "LEG_HELMET_01",
             "itemId": "HELMET_03",
             "itemLevel": 37,
-            "lines": [
-              "Defense Rating: 92",
-              "Gold Find: +17%",
-              "24% Fire Resistance",
-              "68% Physical Damage",
-              "14% Mythical Resistances",
-              "0.9 seconds Reduce Cooldown"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -395,8 +872,7 @@
                 "place": 0.4
               }
             ],
-            "slot": 0,
-            "slotName": "Helm"
+            "slot": 0
           },
           {
             "enchantments": [
@@ -426,23 +902,14 @@
             "imbuedLegendaryId": "LEG_RING_13",
             "itemId": "RING_14",
             "itemLevel": 28,
-            "lines": [
-              "Defense Rating: 94",
-              "3-7 Physical Damage",
-              "3-7 Poison Damage",
-              "6% Attack Speed",
-              "12% All Resistances"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.377777785
               }
             ],
-            "slot": 8,
-            "slotName": "Ring"
+            "slot": 8
           },
           {
             "enchantments": [
@@ -472,23 +939,14 @@
             "imbuedLegendaryId": "",
             "itemId": "RING_15",
             "itemLevel": 23,
-            "lines": [
-              "Light Radius: +6",
-              "23 Hitpoints",
-              "10% Elemental Resistances",
-              "3-6 Cold Damage",
-              "2.5% Critical Hit Chance"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "LIGHT_RADIUS",
                 "place": 1
               }
             ],
-            "slot": 9,
-            "slotName": "Ring"
+            "slot": 9
           },
           {
             "enchantments": [
@@ -518,23 +976,14 @@
             "imbuedLegendaryId": "LEG_AMULET_13",
             "itemId": "AMULET_06",
             "itemLevel": 37,
-            "lines": [
-              "Defense Rating: +27%",
-              "114 Attack Rating",
-              "4-9 Physical Damage",
-              "4-9 Fire Damage",
-              "18% Pierce Cold Resistance"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.7
               }
             ],
-            "slot": 1,
-            "slotName": "Amulet"
+            "slot": 1
           },
           {
             "enchantments": [
@@ -566,16 +1015,7 @@
             "imbuedLegendaryId": "",
             "itemId": "BOOTS_04",
             "itemLevel": 48,
-            "lines": [
-              "Defense Rating: 83",
-              "Block Chance: 3%",
-              "58% Magic Find",
-              "15% Elemental Resistances",
-              "14% Mythical Resistances",
-              "15% All Resistances"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -586,8 +1026,7 @@
                 "place": 1
               }
             ],
-            "slot": 7,
-            "slotName": "Boots"
+            "slot": 7
           },
           {
             "enchantments": [
@@ -619,23 +1058,14 @@
             "imbuedLegendaryId": "",
             "itemId": "LEG_BELT_01",
             "itemLevel": 25,
-            "lines": [
-              "Defense Rating: 11",
-              "8 Strength",
-              "13% Light Resistance",
-              "15% Mythical Resistances",
-              "15% All Resistances"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.1
               }
             ],
-            "slot": 5,
-            "slotName": "Belt"
+            "slot": 5
           },
           {
             "enchantments": [
@@ -665,16 +1095,7 @@
             "imbuedLegendaryId": "",
             "itemId": "GLOVES_04",
             "itemLevel": 48,
-            "lines": [
-              "Defense Rating: 97",
-              "Fire Resistance: +8%",
-              "162 Attack Rating",
-              "24% Critical Hit Damage",
-              "5-11 Cold Damage",
-              "18% All Resistances"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -685,8 +1106,7 @@
                 "place": 1
               }
             ],
-            "slot": 6,
-            "slotName": "Gloves"
+            "slot": 6
           },
           {
             "enchantments": [
@@ -716,17 +1136,7 @@
             "imbuedLegendaryId": "",
             "itemId": "LEG_SHIELD_02",
             "itemLevel": 22,
-            "lines": [
-              "Defense Rating: 116",
-              "Light Radius: +4",
-              "Block Chance: 20%",
-              "39 Hitpoints",
-              "7 Regenerate",
-              "7 Absorb Damage",
-              "8% Reduce Physical Damage"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -737,8 +1147,7 @@
                 "place": 0.5
               }
             ],
-            "slot": 3,
-            "slotName": "Off-hand"
+            "slot": 3
           }
         ],
         "level": 46,
@@ -884,92 +1293,6 @@
         ]
       },
       "labels": {
-        "items": {
-          "AMULET_06": {
-            "name": "Stone Amulet"
-          },
-          "AXE_04": {
-            "name": "Hunting Axe"
-          },
-          "BOOTS_04": {
-            "name": "Infusion Boots"
-          },
-          "GLOVES_04": {
-            "name": "War Gloves"
-          },
-          "HELMET_03": {
-            "name": "Dawnstar Helmet"
-          },
-          "LEG_AMULET_13": {
-            "legendary_name": "Eclipse Spirit Token",
-            "legendary_skill": {
-              "display": "Aspect of the hydra (1)",
-              "level": 1,
-              "skill_id": "SEC_N"
-            },
-            "name": "Emerald Amulet"
-          },
-          "LEG_ARMOR_LIGHT_01": {
-            "legendary_name": "Emberplate",
-            "legendary_skill": {
-              "display": "Aspect of the salamander (1)",
-              "level": 1,
-              "skill_id": "SEC_V"
-            },
-            "name": "Cloth Armor"
-          },
-          "LEG_BELT_01": {
-            "legendary_name": "Fatesash",
-            "legendary_skill": {
-              "display": "Dago's touch (1)",
-              "level": 1,
-              "skill_id": "SEC_P"
-            },
-            "name": "Chain Belt"
-          },
-          "LEG_GREAT_AXE_04": {
-            "legendary_name": "Soulreaver",
-            "legendary_skill": {
-              "display": "IAS: Death experience (1)",
-              "level": 1,
-              "skill_id": "TER_D"
-            },
-            "name": "Bloodfury Axe"
-          },
-          "LEG_HELMET_01": {
-            "legendary_name": "Nine Heavens Visor",
-            "legendary_skill": {
-              "display": "IAS: Fire mastery (1)",
-              "level": 1,
-              "skill_id": "SEC_R"
-            },
-            "name": "Leather Cap"
-          },
-          "LEG_RING_13": {
-            "legendary_name": "Quakeband",
-            "legendary_skill": {
-              "display": "Shockwave (1)",
-              "level": 1,
-              "skill_id": "TER_K"
-            },
-            "name": "Geomancer Ring"
-          },
-          "LEG_SHIELD_02": {
-            "legendary_name": "Warward of Ares",
-            "legendary_skill": {
-              "display": "IAS: Wall up (1)",
-              "level": 1,
-              "skill_id": "SEC_AB"
-            },
-            "name": "Loyal Shield"
-          },
-          "RING_14": {
-            "name": "Diamond Ring"
-          },
-          "RING_15": {
-            "name": "Scorched Ring"
-          }
-        },
         "nodes": {
           "Passive_129": [
             "Add dexterity",
@@ -1125,11 +1448,11 @@
       },
       "level": 46,
       "mark": "internal",
-      "pairing_points": 11,
+      "pairing_points": 10,
       "pairing_results": {
         "drawn": 0,
         "lost": 0,
-        "won": 11
+        "won": 10
       },
       "place": 1,
       "row_id": "4605c9b651ebf11a"
@@ -1137,6 +1460,418 @@
     {
       "arena_name": "Basha",
       "hero": {
+        "cards": [
+          {
+            "image": "/arena-results/closed/art/iron-sword.webp",
+            "itemId": "SWORD_03",
+            "level": 31,
+            "lines": [
+              "Damage: 9 - 17",
+              "Attack Speed: 1.20",
+              "Critical: 6%",
+              "98 Attack Rating",
+              "65% Physical Damage",
+              "7-15 Poison Damage"
+            ],
+            "name": "Iron Sword",
+            "rarity": 3,
+            "slot": "Weapon",
+            "slotIndex": 2,
+            "summary": "Weapon · Dwarf · Lvl 31"
+          },
+          {
+            "image": "/arena-results/closed/art/cloth-armor.webp",
+            "itemId": "ARMOR_LIGHT_01",
+            "level": 12,
+            "lines": [
+              "Defense Rating: 64",
+              "7% Poison Resistance",
+              "10% Dark Resistance",
+              "3 Absorb Damage"
+            ],
+            "name": "Cloth Armor",
+            "rarity": 3,
+            "slot": "Armor",
+            "slotIndex": 4,
+            "summary": "Armor · Dwarf · Lvl 12"
+          },
+          {
+            "image": "/arena-results/closed/art/wrap-sandals.webp",
+            "itemId": "BOOTS_01",
+            "level": 20,
+            "lines": [
+              "Defense Rating: 10",
+              "15% Movement Speed",
+              "8% Light Resistance",
+              "9% Mythical Resistances",
+              "5% Chance to Dodge",
+              "Imbued: Mindwalk · IAS: Target meditation (1)"
+            ],
+            "name": "Mindwalk",
+            "rarity": 5,
+            "slot": "Boots",
+            "slotIndex": 7,
+            "summary": "Boots · Legendary · Lvl 20"
+          },
+          {
+            "image": "/arena-results/closed/art/inferno-amulet.webp",
+            "itemId": "AMULET_01",
+            "level": 7,
+            "lines": [
+              "Fire Resistance: +15%",
+              "13 Hitpoints",
+              "2 Regenerate",
+              "22% Elemental Damage"
+            ],
+            "name": "Inferno Amulet",
+            "rarity": 3,
+            "slot": "Amulet",
+            "slotIndex": 1,
+            "summary": "Amulet · Dwarf · Lvl 7"
+          },
+          {
+            "image": "/arena-results/closed/art/shadow-ring.webp",
+            "itemId": "LEG_RING_08",
+            "level": 38,
+            "lines": [
+              "Dark Resistance: +8%",
+              "12 Dexterity",
+              "22% Light Resistance",
+              "10-21 Light Damage",
+              "3.75% Critical Hit Chance",
+              "Umbral requiem (1)"
+            ],
+            "name": "Nightveil",
+            "rarity": 5,
+            "slot": "Ring",
+            "slotIndex": 8,
+            "summary": "Ring · Legendary · Lvl 38"
+          },
+          {
+            "image": "/arena-results/closed/art/leather-cap.webp",
+            "itemId": "HELMET_01",
+            "level": 2,
+            "lines": [
+              "Defense Rating: 22",
+              "2 Strength",
+              "23% Physical Damage",
+              "2 All Attributes"
+            ],
+            "name": "Leather Cap",
+            "rarity": 3,
+            "slot": "Helm",
+            "slotIndex": 0,
+            "summary": "Helm · Dwarf · Lvl 2"
+          },
+          {
+            "image": "/arena-results/closed/art/tempest-ring.webp",
+            "itemId": "RING_02",
+            "level": 20,
+            "lines": [
+              "Lightning Resistance: +6%",
+              "2-5 Physical Damage",
+              "13% Light Resistance",
+              "9% Mythical Resistances",
+              "9% All Resistances"
+            ],
+            "name": "Tempest Ring",
+            "rarity": 4,
+            "slot": "Ring",
+            "slotIndex": 9,
+            "summary": "Ring · Elf · Lvl 20"
+          },
+          {
+            "image": "/arena-results/closed/art/dire-gloves.webp",
+            "itemId": "GLOVES_03",
+            "level": 30,
+            "lines": [
+              "Defense Rating: 45",
+              "Cold Resistance: +5%",
+              "12 Life on Hit",
+              "6 Regenerate",
+              "3-7 Cold Damage",
+              "2.75% Critical Hit Chance"
+            ],
+            "name": "Dire Gloves",
+            "rarity": 4,
+            "slot": "Gloves",
+            "slotIndex": 6,
+            "summary": "Gloves · Elf · Lvl 30"
+          },
+          {
+            "image": "/arena-results/closed/art/cursed-belt.webp",
+            "itemId": "BELT_02",
+            "level": 30,
+            "lines": [
+              "Defense Rating: 33",
+              "Intelligence: +4",
+              "94 Defense Rating",
+              "15% Dark Resistance",
+              "7 All Attributes",
+              "12% All Resistances"
+            ],
+            "name": "Cursed Belt",
+            "rarity": 4,
+            "slot": "Belt",
+            "slotIndex": 5,
+            "summary": "Belt · Elf · Lvl 30"
+          },
+          {
+            "image": "/arena-results/closed/art/loyal-shield.webp",
+            "itemId": "SHIELD_02",
+            "level": 20,
+            "lines": [
+              "Defense Rating: 68",
+              "Light Radius: +4",
+              "Block Chance: 20%",
+              "59 Defense Rating",
+              "4 Regenerate",
+              "6 All Attributes",
+              "12% All Resistances"
+            ],
+            "name": "Loyal Shield",
+            "rarity": 4,
+            "slot": "Off-hand",
+            "slotIndex": 3,
+            "summary": "Off-hand · Elf · Lvl 20"
+          }
+        ],
+        "charted": [
+          {
+            "granted": false,
+            "id": "SPEAR_Y",
+            "learned": true,
+            "level": 18
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_Z",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": true,
+            "id": "SWORD_b",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_y",
+            "learned": true,
+            "level": 12
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_AA",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_AC",
+            "learned": true,
+            "level": 20
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_aa",
+            "learned": true,
+            "level": 20
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_TS",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_TT",
+            "learned": true,
+            "level": 20
+          },
+          {
+            "granted": false,
+            "id": "SPEAR_ac",
+            "learned": true,
+            "level": 1
+          },
+          {
+            "granted": true,
+            "id": "SWORD_R8d",
+            "learned": false,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_9",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_10",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_11",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_30",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_31",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_32",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_54",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_55",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_56",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_99",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_100",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_101",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_147",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_148",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_149",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_213",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_214",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_215",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_342",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_486",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_487",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_488",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_544",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_545",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_546",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_547",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_548",
+            "learned": true,
+            "level": 0
+          },
+          {
+            "granted": false,
+            "id": "Passive_549",
+            "learned": true,
+            "level": 0
+          }
+        ],
         "equipment": [
           {
             "enchantments": [
@@ -1161,19 +1896,9 @@
             "imbuedLegendaryId": "",
             "itemId": "SWORD_03",
             "itemLevel": 31,
-            "lines": [
-              "Damage: 9 - 17",
-              "Attack Speed: 1.20",
-              "Critical: 6%",
-              "98 Attack Rating",
-              "65% Physical Damage",
-              "7-15 Poison Damage"
-            ],
             "rarity": 3,
-            "rarityName": "Dwarf",
             "rolledBaseStats": [],
-            "slot": 2,
-            "slotName": "Weapon"
+            "slot": 2
           },
           {
             "enchantments": [
@@ -1198,22 +1923,14 @@
             "imbuedLegendaryId": "",
             "itemId": "ARMOR_LIGHT_01",
             "itemLevel": 12,
-            "lines": [
-              "Defense Rating: 64",
-              "7% Poison Resistance",
-              "10% Dark Resistance",
-              "3 Absorb Damage"
-            ],
             "rarity": 3,
-            "rarityName": "Dwarf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.3575669
               }
             ],
-            "slot": 4,
-            "slotName": "Armor"
+            "slot": 4
           },
           {
             "enchantments": [
@@ -1245,23 +1962,14 @@
             "imbuedLegendaryId": "LEG_BOOTS_02",
             "itemId": "BOOTS_01",
             "itemLevel": 20,
-            "lines": [
-              "Defense Rating: 10",
-              "15% Movement Speed",
-              "8% Light Resistance",
-              "9% Mythical Resistances",
-              "5% Chance to Dodge"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.454226673
               }
             ],
-            "slot": 7,
-            "slotName": "Boots"
+            "slot": 7
           },
           {
             "enchantments": [
@@ -1286,22 +1994,14 @@
             "imbuedLegendaryId": "",
             "itemId": "AMULET_01",
             "itemLevel": 7,
-            "lines": [
-              "Fire Resistance: +15%",
-              "13 Hitpoints",
-              "2 Regenerate",
-              "22% Elemental Damage"
-            ],
             "rarity": 3,
-            "rarityName": "Dwarf",
             "rolledBaseStats": [
               {
                 "effectId": "FIRE_RESISTANCE",
                 "place": 0.5208592
               }
             ],
-            "slot": 1,
-            "slotName": "Amulet"
+            "slot": 1
           },
           {
             "enchantments": [
@@ -1331,23 +2031,14 @@
             "imbuedLegendaryId": "",
             "itemId": "LEG_RING_08",
             "itemLevel": 38,
-            "lines": [
-              "Dark Resistance: +8%",
-              "12 Dexterity",
-              "22% Light Resistance",
-              "10-21 Light Damage",
-              "3.75% Critical Hit Chance"
-            ],
             "rarity": 5,
-            "rarityName": "Legendary",
             "rolledBaseStats": [
               {
                 "effectId": "DARK_RESISTANCE",
                 "place": 0.6485436
               }
             ],
-            "slot": 8,
-            "slotName": "Ring"
+            "slot": 8
           },
           {
             "enchantments": [
@@ -1373,22 +2064,14 @@
             "imbuedLegendaryId": "",
             "itemId": "HELMET_01",
             "itemLevel": 2,
-            "lines": [
-              "Defense Rating: 22",
-              "2 Strength",
-              "23% Physical Damage",
-              "2 All Attributes"
-            ],
             "rarity": 3,
-            "rarityName": "Dwarf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
                 "place": 0.942689061
               }
             ],
-            "slot": 0,
-            "slotName": "Helm"
+            "slot": 0
           },
           {
             "enchantments": [
@@ -1419,23 +2102,14 @@
             "imbuedLegendaryId": "",
             "itemId": "RING_02",
             "itemLevel": 20,
-            "lines": [
-              "Lightning Resistance: +6%",
-              "2-5 Physical Damage",
-              "13% Light Resistance",
-              "9% Mythical Resistances",
-              "9% All Resistances"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "LIGHTNING_RESISTANCE",
                 "place": 0.221338749
               }
             ],
-            "slot": 9,
-            "slotName": "Ring"
+            "slot": 9
           },
           {
             "enchantments": [
@@ -1463,16 +2137,7 @@
             "imbuedLegendaryId": "",
             "itemId": "GLOVES_03",
             "itemLevel": 30,
-            "lines": [
-              "Defense Rating: 45",
-              "Cold Resistance: +5%",
-              "12 Life on Hit",
-              "6 Regenerate",
-              "3-7 Cold Damage",
-              "2.75% Critical Hit Chance"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -1483,8 +2148,7 @@
                 "place": 0.4145847
               }
             ],
-            "slot": 6,
-            "slotName": "Gloves"
+            "slot": 6
           },
           {
             "enchantments": [
@@ -1516,16 +2180,7 @@
             "imbuedLegendaryId": "",
             "itemId": "BELT_02",
             "itemLevel": 30,
-            "lines": [
-              "Defense Rating: 33",
-              "Intelligence: +4",
-              "94 Defense Rating",
-              "15% Dark Resistance",
-              "7 All Attributes",
-              "12% All Resistances"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -1536,8 +2191,7 @@
                 "place": 0.2566356
               }
             ],
-            "slot": 5,
-            "slotName": "Belt"
+            "slot": 5
           },
           {
             "enchantments": [
@@ -1568,17 +2222,7 @@
             "imbuedLegendaryId": "",
             "itemId": "SHIELD_02",
             "itemLevel": 20,
-            "lines": [
-              "Defense Rating: 68",
-              "Light Radius: +4",
-              "Block Chance: 20%",
-              "59 Defense Rating",
-              "4 Regenerate",
-              "6 All Attributes",
-              "12% All Resistances"
-            ],
             "rarity": 4,
-            "rarityName": "Elf",
             "rolledBaseStats": [
               {
                 "effectId": "DEFENSE_RATING",
@@ -1589,8 +2233,7 @@
                 "place": 0.293366373
               }
             ],
-            "slot": 3,
-            "slotName": "Off-hand"
+            "slot": 3
           }
         ],
         "level": 37,
@@ -1691,53 +2334,6 @@
         ]
       },
       "labels": {
-        "items": {
-          "AMULET_01": {
-            "name": "Inferno Amulet"
-          },
-          "ARMOR_LIGHT_01": {
-            "name": "Cloth Armor"
-          },
-          "BELT_02": {
-            "name": "Cursed Belt"
-          },
-          "BOOTS_01": {
-            "name": "Wrap Sandals"
-          },
-          "GLOVES_03": {
-            "name": "Dire Gloves"
-          },
-          "HELMET_01": {
-            "name": "Leather Cap"
-          },
-          "LEG_BOOTS_02": {
-            "legendary_name": "Mindwalk",
-            "legendary_skill": {
-              "display": "IAS: Target meditation (1)",
-              "level": 1,
-              "skill_id": "SEC_B"
-            },
-            "name": "Leather Shoes"
-          },
-          "LEG_RING_08": {
-            "legendary_name": "Nightveil",
-            "legendary_skill": {
-              "display": "Umbral requiem (1)",
-              "level": 1,
-              "skill_id": "ULT_D"
-            },
-            "name": "Shadow Ring"
-          },
-          "RING_02": {
-            "name": "Tempest Ring"
-          },
-          "SHIELD_02": {
-            "name": "Loyal Shield"
-          },
-          "SWORD_03": {
-            "name": "Iron Sword"
-          }
-        },
         "nodes": {
           "Passive_10": [
             "Add constitution",
@@ -1859,529 +2455,17 @@
       },
       "level": 37,
       "mark": "internal",
-      "pairing_points": 10,
+      "pairing_points": 9,
       "pairing_results": {
         "drawn": 0,
         "lost": 1,
-        "won": 10
+        "won": 9
       },
       "place": 2,
       "row_id": "177a3f31eaef63ce"
-    },
-    {
-      "arena_name": "Mara",
-      "hero": {
-        "equipment": [
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_106",
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_066",
-                "place": 1,
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_063",
-                "place": 0.142857149,
-                "targetSkillNodeId": "",
-                "tier": 3
-              },
-              {
-                "enchantmentId": "ENC_056",
-                "targetSkillNodeId": "",
-                "tier": 4
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "SWORD_02",
-            "itemLevel": 15,
-            "lines": [
-              "Damage: 3 - 11",
-              "Attack Speed: 1.10",
-              "Critical: 5.5%",
-              "6 Life on Hit",
-              "30% Elemental Damage",
-              "8% Area Damage",
-              "11% Life Steal"
-            ],
-            "rarity": 4,
-            "rarityName": "Elf",
-            "rolledBaseStats": [],
-            "slot": 2,
-            "slotName": "Weapon"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_001",
-                "place": 0.142857149,
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_032",
-                "place": 0.6,
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_076",
-                "targetSkillNodeId": "",
-                "tier": 3
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "ARMOR_HEAVY_01",
-            "itemLevel": 12,
-            "lines": [
-              "Defense Rating: 107",
-              "8% Fire Resistance",
-              "28% Defense Rating",
-              "3 Absorb Damage"
-            ],
-            "rarity": 3,
-            "rarityName": "Dwarf",
-            "rolledBaseStats": [
-              {
-                "effectId": "DEFENSE_RATING",
-                "place": 0.88
-              }
-            ],
-            "slot": 4,
-            "slotName": "Armor"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_044",
-                "place": 0,
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_092",
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_054",
-                "place": 0.5,
-                "targetSkillNodeId": "",
-                "tier": 3
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "RING_16",
-            "itemLevel": 25,
-            "lines": [
-              "Regeneration: 5",
-              "5 Dexterity",
-              "3-6 Physical Damage",
-              "6 All Attributes"
-            ],
-            "rarity": 3,
-            "rarityName": "Dwarf",
-            "rolledBaseStats": [
-              {
-                "effectId": "LIFE_REGEN",
-                "place": 0.6666667
-              }
-            ],
-            "slot": 8,
-            "slotName": "Ring"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_023",
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_021",
-                "place": 1,
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_054",
-                "place": 0.5,
-                "targetSkillNodeId": "",
-                "tier": 3
-              },
-              {
-                "enchantmentId": "ENC_009",
-                "place": 0,
-                "targetSkillNodeId": "",
-                "tier": 4
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "RING_05",
-            "itemLevel": 8,
-            "lines": [
-              "Magic Find: +19%",
-              "1.5 Light Radius",
-              "11% Lightning Damage",
-              "3 All Attributes",
-              "6% All Resistances"
-            ],
-            "rarity": 4,
-            "rarityName": "Elf",
-            "rolledBaseStats": [
-              {
-                "effectId": "MAGIC_FIND",
-                "place": 0.266666681
-              }
-            ],
-            "slot": 9,
-            "slotName": "Ring"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_023",
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_061",
-                "targetSkillNodeId": "",
-                "tier": 2
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "AMULET_11",
-            "itemLevel": 23,
-            "lines": [
-              "Hitpoints: +13%",
-              "3 Light Radius",
-              "5 Regenerate"
-            ],
-            "rarity": 2,
-            "rarityName": "King",
-            "rolledBaseStats": [
-              {
-                "effectId": "HITPOINTS",
-                "place": 0.3
-              }
-            ],
-            "slot": 1,
-            "slotName": "Amulet"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_027",
-                "place": 0.454545468,
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_006",
-                "place": 0,
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_054",
-                "place": 0,
-                "targetSkillNodeId": "",
-                "tier": 3
-              },
-              {
-                "enchantmentId": "ENC_009",
-                "place": 0.4,
-                "targetSkillNodeId": "",
-                "tier": 4
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "SHIELD_02",
-            "itemLevel": 20,
-            "lines": [
-              "Defense Rating: 63",
-              "Light Radius: +5",
-              "Block Chance: 20%",
-              "24 Hitpoints",
-              "8% Dark Resistance",
-              "4 All Attributes",
-              "10% All Resistances"
-            ],
-            "rarity": 4,
-            "rarityName": "Elf",
-            "rolledBaseStats": [
-              {
-                "effectId": "DEFENSE_RATING",
-                "place": 0.32
-              },
-              {
-                "effectId": "LIGHT_RADIUS",
-                "place": 1
-              }
-            ],
-            "slot": 3,
-            "slotName": "Off-hand"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_046",
-                "place": 0.5,
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_047",
-                "place": 1,
-                "targetSkillNodeId": "",
-                "tier": 2
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "HELMET_03",
-            "itemLevel": 23,
-            "lines": [
-              "Defense Rating: 79",
-              "Gold Find: +19%",
-              "6 Intelligence",
-              "14% Strength"
-            ],
-            "rarity": 2,
-            "rarityName": "King",
-            "rolledBaseStats": [
-              {
-                "effectId": "DEFENSE_RATING",
-                "place": 0.475
-              },
-              {
-                "effectId": "GOLD_FIND",
-                "place": 0.8
-              }
-            ],
-            "slot": 0,
-            "slotName": "Helm"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_045",
-                "place": 0,
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_061",
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_054",
-                "place": 0,
-                "targetSkillNodeId": "",
-                "tier": 3
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "BELT_01",
-            "itemLevel": 7,
-            "lines": [
-              "Defense Rating: 9",
-              "2 Constitution",
-              "2 Regenerate",
-              "2 All Attributes"
-            ],
-            "rarity": 3,
-            "rarityName": "Dwarf",
-            "rolledBaseStats": [
-              {
-                "effectId": "DEFENSE_RATING",
-                "place": 0.2
-              }
-            ],
-            "slot": 5,
-            "slotName": "Belt"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_026",
-                "place": 0.8,
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_006",
-                "place": 0.6666667,
-                "targetSkillNodeId": "",
-                "tier": 2
-              },
-              {
-                "enchantmentId": "ENC_008",
-                "place": 0.8,
-                "targetSkillNodeId": "",
-                "tier": 3
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "BOOTS_01",
-            "itemLevel": 7,
-            "lines": [
-              "Defense Rating: 10",
-              "14 Hitpoints",
-              "10% Dark Resistance",
-              "10% Mythical Resistances"
-            ],
-            "rarity": 3,
-            "rarityName": "Dwarf",
-            "rolledBaseStats": [
-              {
-                "effectId": "DEFENSE_RATING",
-                "place": 0.5
-              }
-            ],
-            "slot": 7,
-            "slotName": "Boots"
-          },
-          {
-            "enchantments": [
-              {
-                "enchantmentId": "ENC_106",
-                "targetSkillNodeId": "",
-                "tier": 1
-              },
-              {
-                "enchantmentId": "ENC_032",
-                "place": 0.6,
-                "targetSkillNodeId": "",
-                "tier": 2
-              }
-            ],
-            "imbuedLegendaryId": "",
-            "itemId": "GLOVES_02",
-            "itemLevel": 12,
-            "lines": [
-              "Defense Rating: 22",
-              "Lightning Resistance: +5%",
-              "6 Life on Hit",
-              "28% Defense Rating"
-            ],
-            "rarity": 2,
-            "rarityName": "King",
-            "rolledBaseStats": [
-              {
-                "effectId": "DEFENSE_RATING",
-                "place": 0.2
-              },
-              {
-                "effectId": "LIGHTNING_RESISTANCE",
-                "place": 0.6666667
-              }
-            ],
-            "slot": 6,
-            "slotName": "Gloves"
-          }
-        ],
-        "level": 26,
-        "nodes": {
-          "passiveNodeAllocations": [],
-          "skillLevels": [
-            {
-              "level": 17,
-              "skillNodeTypeId": "ATT_Q"
-            },
-            {
-              "level": 1,
-              "skillNodeTypeId": "ATT_R"
-            },
-            {
-              "level": 15,
-              "skillNodeTypeId": "SEC_Q"
-            },
-            {
-              "level": 11,
-              "skillNodeTypeId": "ATT_S"
-            },
-            {
-              "level": 11,
-              "skillNodeTypeId": "SEC_S"
-            },
-            {
-              "level": 11,
-              "skillNodeTypeId": "TER_N"
-            }
-          ],
-          "unlockedSkillIds": []
-        },
-        "skills": [
-          {
-            "nodeTypeId": "",
-            "skillType": 1
-          },
-          {
-            "nodeTypeId": "",
-            "skillType": 2
-          },
-          {
-            "nodeTypeId": "",
-            "skillType": 3
-          }
-        ]
-      },
-      "labels": {
-        "items": {
-          "AMULET_11": {
-            "name": "Ruby Amulet"
-          },
-          "ARMOR_HEAVY_01": {
-            "name": "Plate Armor"
-          },
-          "BELT_01": {
-            "name": "Chain Belt"
-          },
-          "BOOTS_01": {
-            "name": "Wrap Sandals"
-          },
-          "GLOVES_02": {
-            "name": "Rivet Gloves"
-          },
-          "HELMET_03": {
-            "name": "Dawnstar Helmet"
-          },
-          "RING_05": {
-            "name": "Gold Ring"
-          },
-          "RING_16": {
-            "name": "Regrowth Ring"
-          },
-          "SHIELD_02": {
-            "name": "Loyal Shield"
-          },
-          "SWORD_02": {
-            "name": "Long Sword"
-          }
-        },
-        "nodes": {},
-        "skills": {}
-      },
-      "level": 26,
-      "mark": "internal",
-      "pairing_points": 4,
-      "pairing_results": {
-        "drawn": 0,
-        "lost": 7,
-        "won": 4
-      },
-      "place": 8,
-      "row_id": "ea81e1dc9c20fba2"
     }
   ],
-  "schema": "conjunction-arena-web/4",
+  "schema": "conjunction-arena-web/5",
   "season": 60210,
   "texts": {
     "ARENA_ENTRANT": "{name} L{level}",
@@ -2404,5 +2488,6 @@
     "ARENA_ZTIROM_FINAL": "\"{name} takes the crown of week {week}.\""
   },
   "track": "internal",
-  "week": "2026-W47"
+  "week": "2026-W47",
+  "wheelVersion": "d1c2638ddc82bfaaa965bc257699206678bc650397451d0404a6c7066ff01a13"
 }

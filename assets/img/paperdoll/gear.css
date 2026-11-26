@@ -1,4 +1,4 @@
-.gear { --slot-frame: url("/arena-results/internal/art/card-frame.webp"); --slot-frame-slice: 14; --gear-selection: #60c0ffFF; }
+.gear { --slot-frame: url("/assets/img/paperdoll/card-frame.webp"); --slot-frame-slice: 14; --gear-selection: #60c0ffFF; }
 .item--rarity-0 { --rarity: #808080FF; --rarity-ink: #B4B0A8FF; }
 .item--rarity-1 { --rarity: #3366CCFF; --rarity-ink: #6FA3FFFF; }
 .item--rarity-2 { --rarity: #D9A621FF; --rarity-ink: #E8B93AFF; }

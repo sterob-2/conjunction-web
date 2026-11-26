@@ -9,7 +9,6 @@
     --place-silver: #c9c9c9;
     --place-bronze: #c08a52;
     --stone-veil: color-mix(in srgb, var(--card) 92%, transparent);
-    --slot-veil: color-mix(in srgb, var(--bg-deep) 88%, transparent);
 }
 
 body.arena {
@@ -200,74 +199,13 @@ body.arena::before {
 .entry > section { padding-block: 0; }
 .entry h4 { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin: 1.2rem 0 0.6rem; }
 
-.gear {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(3px, 1vw, 8px);
-    max-width: 26rem;
-    margin-inline: auto;
-}
-.gear__rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: inherit; }
-.gear__cell {
-    position: relative;
-    display: grid;
-    place-items: center;
-    min-height: 44px;
-    padding: 12%;
-    border: 0;
-    background: var(--slot-veil);
-    box-shadow: inset 0 0 0 5px var(--rarity, var(--border-mid));
-}
-.gear > .gear__cell, .gear__rings { aspect-ratio: 1; }
-.gear__cell::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 6px solid transparent;
-    border-image: var(--slot-frame) var(--slot-frame-slice) stretch;
-    pointer-events: none;
-}
-button.gear__cell { cursor: pointer; }
-.gear__cell[aria-expanded="true"]::after {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    border: 2px solid var(--gear-selection);
-    pointer-events: none;
-}
-.gear__cell:focus-visible { outline: 3px solid var(--gear-selection); outline-offset: 1px; z-index: 1; }
-.gear__cell img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
-.gear__cell .gear__silhouette { filter: sepia(1) saturate(2.2) brightness(2.6); opacity: 0.65; }
-.gear__level {
-    position: absolute;
-    bottom: 6px;
-    right: 6px;
-    padding-inline: 0.2rem;
-    border-radius: 2px;
-    color: var(--ink);
-    background: var(--bg-deep);
-    font: 0.75rem var(--sans);
-}
-.item {
-    max-width: 26rem;
+.skill-card {
     margin: 0.65rem auto;
     padding: 0.75rem;
     border: 1px solid var(--border-mid);
     background: var(--slot-veil);
 }
-.item__name { margin: 0; font-family: var(--serif); font-size: 1.25rem; color: var(--rarity-ink, var(--gold)); }
-.item__kind { margin: 0.1rem 0 0.35rem; color: var(--ink-mid); font-size: 0.85rem; }
-.item ul { list-style: none; margin: 0; padding: 0; font-size: 0.94rem; color: var(--ink); }
-.item li + li { margin-top: 0.2rem; }
-
-.wheel-picture {
-    display: block;
-    width: 100%;
-    max-width: 34rem;
-    height: auto;
-    margin-inline: auto;
-    border: 1px solid var(--border-mid);
-}
+.skill-card p { margin: 0; }
 .skills { list-style: none; margin: 0.65rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .skills button {
     min-height: 44px;
@@ -313,11 +251,6 @@ button.gear__cell { cursor: pointer; }
 .arena-gate .btn { margin-bottom: 1rem; }
 
 .arena-foot { margin-top: 3rem; }
-
-/* -- Phones: a smaller picture leaves the item's lines their width ----------- */
-
-@media (max-width: 599px) {
-}
 
 /* -- Wide screens: use the room ---------------------------------------------- */
 

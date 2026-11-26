@@ -120,7 +120,7 @@ export async function readHeroViews(session, net) {
     const read = await call(net, "POST", HERO_VIEW, { access: session.accessToken, body: { params: {} } });
     if (!read.ok) return { ok: false, failure: failureOf(read) };
     const view = typeof read.body.output === "string" ? bodyOf(read.body.output) : read.body.output;
-    if (!Array.isArray(view?.heroes) || !Array.isArray(view.wheel?.nodes) || !Array.isArray(view.wheel?.edges)) {
+    if (!Array.isArray(view?.heroes) || typeof view.wheelVersion !== "string" || !/^[a-f0-9]{64}$/.test(view.wheelVersion)) {
         return { ok: false, failure: Failure.REFUSED };
     }
     return { ok: true, view };
